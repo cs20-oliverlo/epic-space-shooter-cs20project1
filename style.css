@@ -1,0 +1,17 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+canvas {
+    border: solid black 1px;
+}
