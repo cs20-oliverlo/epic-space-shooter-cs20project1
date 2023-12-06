@@ -12,6 +12,9 @@ body {
     display: flex;
     justify-content: center;
 }
+.sidepanel {
+    width: 20%;
+}
 
 canvas {
     border: solid black 1px;
