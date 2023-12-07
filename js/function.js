@@ -18,6 +18,7 @@ function runGame() {
     for (let i = 0; i < bullets.length; i++) {
         drawBullets(i);
         bulletMovement(i);
+        bulletDetection(i);
     }
 }
 
@@ -31,7 +32,7 @@ function drawGameOver() {
 
 function drawMainComponents() {
     // Background
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "grey";
     ctx.fillRect(0, 0, cnv.width, cnv.height);
     
     drawPlayer();
@@ -40,7 +41,7 @@ function drawMainComponents() {
 function drawPlayer() {
     // Thruster
     ctx.lineWidth = 2;
-    ctx.strokeStyle = "rgb(50, 130, 255)";
+    ctx.strokeStyle = "red";
     ctx.beginPath();
     ctx.moveTo(11.5 + player[0].x, 25 + player[0].y);
     ctx.lineTo(0 + player[0].x, 35 + player[0].y);
@@ -49,13 +50,13 @@ function drawPlayer() {
 
     // Ship
     ctx.lineWidth = 2;
-    ctx.strokeStyle = "red";
+    ctx.strokeStyle = "black";
     ctx.beginPath();
     ctx.moveTo(0 + player[0].x, 0 + player[0].y);
     ctx.lineTo(player[0].w / 2 + player[0].x, player[0].h / 2 + player[0].y);
     ctx.lineTo(0 + player[0].x, 20 + player[0].y);
     ctx.lineTo(-player[0].w / 2 + player[0].x, player[0].h / 2 + player[0].y);
-    ctx.closePath(); // Go back to start
+    ctx.closePath();
     ctx.stroke();
 }
 
@@ -87,33 +88,52 @@ function playerMovement(n) {
 }
 
 function playerShoot(n) {
-    if (player[n].shoot === true) {
-        bullets.push(newBullet(player[n].x, player[n].y, 0, "player", "laser"));
+    if (player[n].reloadTimer >= player[n].reloadTarget && player[n].shoot === true) {
+        // (x, y, width, height, radius, color, team, type, xVelocity, yVelocity, direction)
+        bullets.push(newBullet(0, 0, 0, 0, 0, "white", "player", "laser", 0, 0, 0));
+        customBullet(n);   
+        player[n].reloadTimer = 0;
+    }
+
+    player[n].reloadTimer++;
+}
+
+function customBullet(n) {
+    if (bullets[bullets.length - 1].type === "laser") {
+        bullets[bullets.length - 1].h = 50;
+        bullets[bullets.length - 1].yVel = 30;
+        bullets[bullets.length - 1].color = "darkred";
+    }
+    if (bullets[bullets.length - 1].team === "player") {
+        bullets[bullets.length - 1].x = player[n].x;
+        bullets[bullets.length - 1].y = player[n].y  - bullets[bullets.length - 1].h;
+        bullets[bullets.length - 1].direction = -1;
     }
 }
 
 function drawBullets(n) {
     if (bullets[n].type === "laser") {
         ctx.lineWidth = 3;
-        if (bullets[n].team === "player") {
-            ctx.strokeStyle = "rgb(200, 75, 12)";
-        } else if (bullets[n].team === "enemy") {
-            ctx.strokeStyle = "red";
-        }
+        ctx.strokeStyle = bullets[n].color;
         ctx.beginPath();
         ctx.moveTo(bullets[n].x, bullets[n].y);
-        ctx.lineTo(bullets[n].x, bullets[n].y + 50);
+        ctx.lineTo(bullets[n].x, bullets[n].y + bullets[n].h);
         ctx.stroke();
     }
 }
 
 function bulletMovement(n) {
-    if (bullets[n].type === "laser") {
-        
-    }    
+    bullets[n].x += bullets[n].xVel;
+    bullets[n].y += bullets[n].yVel * bullets[n].direction;
 }
 
-function newPlayer(xP, yP, wP, hP, xVelP, yVelP, livesP, shootP, upP, leftP, rightP, downP) {
+function bulletDetection(n) {
+    if (bullets[n].y + bullets[n].h < 0) {
+        bullets.splice(n, 1);
+    }
+}
+
+function newPlayer(xP, yP, wP, hP, xVelP, yVelP, reloadTimerP, reloadTargetP, livesP, shootP, upP, leftP, rightP, downP) {
     return {
         x: xP,
         y: yP,
@@ -121,6 +141,8 @@ function newPlayer(xP, yP, wP, hP, xVelP, yVelP, livesP, shootP, upP, leftP, rig
         h: hP,
         xVel: xVelP,
         yVel: yVelP,
+        reloadTimer: reloadTimerP,
+        reloadTarget: reloadTargetP,
         lives: livesP,
         shoot: shootP,
         up: upP,
@@ -130,13 +152,19 @@ function newPlayer(xP, yP, wP, hP, xVelP, yVelP, livesP, shootP, upP, leftP, rig
     }
 }
 
-function newBullet(xP, yP, rP, teamP, typeP) {
+function newBullet(xP, yP, wP, hP, rP, colorP, teamP, typeP, xVelP, yVelP, directionP) {
     return {
         x: xP,
         y: yP,
+        w: wP,
+        h: hP,
         r: rP,
+        color: colorP,
         team: teamP,
-        type: typeP
+        type: typeP,
+        xVel: xVelP,
+        yVel: yVelP,
+        direction: directionP
     }
 }
 
@@ -158,7 +186,8 @@ function reset() {
     };
 
     player = [];
-    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 5, 5, 3, false, false, false, false, false));
+    // (x, y, width, height, xVelocity, yVelocity, reloadTime, reloadTarget, shoot, up, left, right down)
+    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 7, 7, 5, 5, 3, false, false, false, false, false));
 
     bullets = [];
 }
