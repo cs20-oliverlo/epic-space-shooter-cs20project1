@@ -1,7 +1,7 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: auto;
-    background-color: rgb(22, 128, 68);
+    background-color: grey;
 }
 
 .center {
@@ -19,3 +19,14 @@ body {
 canvas {
     border: solid black 1px;
 }
+
+/* Color Pallette */
+/*
+Darker Green: rgb(63, 142, 111),
+Teal: rgb(95, 207, 169),
+Mint: rgb(152, 232, 193),
+White: rgb(255, 255, 255),
+Baby Blue: rgb(123, 173, 224),
+Indigo: rgb(80, 73, 203),
+Violet: rgb(60, 26, 120)
+*/

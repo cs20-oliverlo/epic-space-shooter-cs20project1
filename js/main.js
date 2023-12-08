@@ -14,7 +14,9 @@ let state;
 let keys;
 let camera;
 let player;
+let enemies;
 let bullets;
+let color;
 reset();
 
 // Draw Function
