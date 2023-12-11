@@ -1,7 +1,7 @@
 function drawPlayer() {
     // Thruster
     ctx.lineWidth = 2;
-    ctx.strokeStyle = color.mint;
+    ctx.strokeStyle = color.babyBlue;
     ctx.beginPath();
     ctx.moveTo(11.5 + player[0].x, 25 + player[0].y);
     ctx.lineTo(0 + player[0].x, 35 + player[0].y);
@@ -45,13 +45,19 @@ function playerMovement(n) {
     } else if (player[n].y + player[n].h / 2 > cnv.height) {
         player[n].y = cnv.height - player[n].h / 2;
     }
+
+    console.log(player[0].x, player[0].y);
 }
 
 function playerShoot(n) {
     if (player[n].reloadTimer >= player[n].reloadTarget && player[n].shoot === true) {
         // (x, y, width, height, radius, color, team, type, xVelocity, yVelocity, direction)
         bullets.push(newBullet(0, 0, 0, 0, 0, "white", "player", "laser", 0, 0, 0));
-        customBullet(n);   
+        customBullet(n);
+        bullets[bullets.length - 1].x -= 10;
+        bullets.push(newBullet(0, 0, 0, 0, 0, "white", "player", "laser", 0, 0, 0));
+        customBullet(n);
+        bullets[bullets.length - 1].x += 10;
         player[n].reloadTimer = 0;
     }
 

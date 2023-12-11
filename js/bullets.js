@@ -30,6 +30,12 @@ function customBullet(n) {
         bullets[bullets.length - 1].y = player[n].y  - bullets[bullets.length - 1].h;
         bullets[bullets.length - 1].direction = -1;
     }
+
+    if (bullets[bullets.length - 1].team === "enemy") {
+        bullets[bullets.length - 1].x = player[n].x;
+        bullets[bullets.length - 1].y = player[n].y  - bullets[bullets.length - 1].h;
+        bullets[bullets.length - 1].direction = -1;
+    }
 }
 
 function bulletMovement(n) {

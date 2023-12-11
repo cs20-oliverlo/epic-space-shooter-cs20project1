@@ -20,7 +20,7 @@ let color;
 reset();
 
 // Draw Function
-window.addEventListener("load", draw);
+let fps = 60;
 
 function draw() {
     if (state === "start") {
@@ -34,10 +34,13 @@ function draw() {
     }
 
     controls();
-
-    // Request Animation Frame
-    requestAnimationFrame(draw);
+    
+    setTimeout(() => {
+        requestAnimationFrame(draw);
+      }, 1000 / fps);
 }
+
+draw();
 
 // Event Stuff
 document.addEventListener("mousedown", mousedownHandler);

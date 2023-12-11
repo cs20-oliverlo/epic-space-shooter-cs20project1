@@ -11,8 +11,8 @@ function runGame() {
     drawMainComponents();
 
     for (let i = 0; i < player.length; i++) {
-        playerMovement(i);
         playerShoot(i);
+        playerMovement(i);
     }
 
     for (let i = 0; i < enemies.length; i++) {
@@ -111,7 +111,7 @@ function reset() {
 
     player = [];
     // (x, y, width, height, xVelocity, yVelocity, reloadTime, reloadTarget, shoot, up, left, right down)
-    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 5, 5, 5, 5, 3, false, false, false, false, false));
+    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 6, 6, 5, 5, 3, false, false, false, false, false));
 
     enemies = [];
 

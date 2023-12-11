@@ -3,23 +3,24 @@ let enemyTypes;
 fetch('json/enemyTypes.json')
     .then((res) => res.json())
     .then((data) => enemyTypes = data);
-
+    
 function drawEnemies(n) {
-    if (enemy[n].type === "laser") {
+    if (enemy[n].type === "discus") {
         ctx.lineWidth = 3;
-        ctx.strokeStyle = enemy[n].color;
+        ctx.strokeStyle = enemies[i].color;
+        ctx.beginPath();
+        ctx.arc(enemies[i].x, enemies[i].y, enemies[i].r, 0, 2 * Math.PI);
+        ctx.stroke();
     }
 }
 
 function customEnemies(n) {
-    if (bullets[bullets.length - 1].type === "laser") {
-        bullets[bullets.length - 1].h = 50;
-        bullets[bullets.length - 1].yVel = 30;
-        bullets[bullets.length - 1].color = color.teal;
-    }
-    if (bullets[bullets.length - 1].team === "player") {
-        bullets[bullets.length - 1].x = player[n].x;
-        bullets[bullets.length - 1].y = player[n].y  - bullets[bullets.length - 1].h;
-        bullets[bullets.length - 1].direction = -1;
+    for (let i = 0; i < bullets.length; i++) {
+        if (bullets[bullets.length - 1].type === bulletType[i].type) {
+            bullets[bullets.length - 1].r = bulletType[i].r;
+            bullets[bullets.length - 1].xVel = bulletType[i].xVel;
+            bullets[bullets.length - 1].yVel = bulletType[i].yVel;
+            bullets[bullets.length - 1].color = color.teal;
+        }
     }
 }
