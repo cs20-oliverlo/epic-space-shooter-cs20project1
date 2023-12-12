@@ -16,7 +16,7 @@ function runGame() {
     }
 
     for (let i = 0; i < enemies.length; i++) {
-        // drawEnemies(i);
+        drawEnemies(i);
     }
 
     for (let i = 0; i < bullets.length; i++) {
@@ -24,6 +24,11 @@ function runGame() {
         bulletMovement(i);
         bulletDetection(i);
     }
+
+    // Make levels function that has other things that:
+    // Pace levels so each enemy wave has appropriate screen time
+    // Chooses the right level to load
+    // do need level data/json file???
 }
 
 function pauseGame() {
@@ -61,10 +66,14 @@ function newPlayer(xP, yP, wP, hP, xVelP, yVelP, reloadTimerP, reloadTargetP, li
     }
 }
 
-function newEnemy(xP, yP, healthP, xVelP, yVelP, xDirectionP, yDirectionP, canShootP, reloadTimerP, reloadTargetP) {
+function newEnemy(xP, yP, wP, hP, rP, colorP, healthP, xVelP, yVelP, xDirectionP, yDirectionP, canShootP, reloadTimerP, reloadTargetP) {
     return {
         x: xP,
         y: yP,
+        w: wP,
+        h: hP,
+        r: rP,
+        color: colorP,
         health: healthP,
         xVel: xVelP,
         yVel: yVelP,
@@ -114,8 +123,6 @@ function reset() {
     player.push(newPlayer(cnv.width / 2, 580, 20, 50, 6, 6, 5, 5, 3, false, false, false, false, false));
 
     enemies = [];
-
-    enemies.push(newEnemy());
 
     bullets = [];
 

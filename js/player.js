@@ -45,8 +45,6 @@ function playerMovement(n) {
     } else if (player[n].y + player[n].h / 2 > cnv.height) {
         player[n].y = cnv.height - player[n].h / 2;
     }
-
-    console.log(player[0].x, player[0].y);
 }
 
 function playerShoot(n) {

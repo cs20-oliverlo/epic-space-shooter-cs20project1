@@ -4,5 +4,6 @@
     "r": 10,
     "type": "discus",
     "xVel": 4,
-    "yVel": 4
+    "yVel": 4,
+    "canShoot": false
 }]

@@ -19,8 +19,28 @@ let bullets;
 let color;
 reset();
 
+// Playable at any monitors refresh rate (I think, I have not tried it on other than the school ones)
+
+const perfectFrameTime = 1000 / 60;
+let deltaTime = 0;
+let lastTimestamp = 0;
+
+function start() {
+    requestAnimationFrame(update);
+}
+
+function update(timestamp) {
+    requestAnimationFrame(update);
+    deltaTime = (timestamp - lastTimestamp) / perfectFrameTime;
+    lastTimestamp = timestamp;
+
+    // YOUR FRAME CODE HERE!
+    draw();
+}
+
+start();
+
 // Draw Function
-let fps = 60;
 
 function draw() {
     if (state === "start") {
@@ -34,13 +54,7 @@ function draw() {
     }
 
     controls();
-    
-    setTimeout(() => {
-        requestAnimationFrame(draw);
-      }, 1000 / fps);
 }
-
-draw();
 
 // Event Stuff
 document.addEventListener("mousedown", mousedownHandler);
