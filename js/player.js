@@ -22,16 +22,16 @@ function drawPlayer() {
 
 function playerMovement(n) {
     if (player[n].up === true) {
-        player[n].y -= player[0].yVel;
+        player[n].y -= player[0].yVel * deltaTime;
     }
     if (player[n].left === true) {
-        player[n].x -= player[0].xVel;
+        player[n].x -= player[0].xVel * deltaTime;
     }
     if (player[n].right === true) {
-        player[n].x += player[0].xVel;
+        player[n].x += player[0].xVel * deltaTime;
     }
     if (player[n].down === true) {
-        player[n].y += player[0].yVel;
+        player[n].y += player[0].yVel * deltaTime;
     }
 
     if (player[n].x < 0) {
@@ -48,7 +48,7 @@ function playerMovement(n) {
 }
 
 function playerShoot(n) {
-    if (player[n].reloadTimer >= player[n].reloadTarget && player[n].shoot === true) {
+    if (player[n].reloadTimer * deltaTime >= player[n].reloadTarget && player[n].shoot === true) {
         // (x, y, width, height, radius, color, team, type, xVelocity, yVelocity, direction)
         bullets.push(newBullet(0, 0, 0, 0, 0, "white", "player", "laser", 0, 0, 0));
         customBullet(n);

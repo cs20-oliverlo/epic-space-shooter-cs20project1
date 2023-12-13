@@ -30,11 +30,11 @@ function customEnemies() {
     }
 }
 
-function enemyFormation() {
+function enemyFormation(n) {
     for (let i = 0; i < enemyWaves.length; i++) {
-        for (let j = 0; j < enemyWaves[i].length; j++) {
+        for (let j = 0; j < enemyWaves[n][i].length; j++) {
             // x, y, health, xVel, yVel, xDirection, yDirection, canShoot, reloadTimer, reloadTarget
-            enemies.push(newEnemy(cnv.width / enemyWaves[i].length, 100, 5, 0, 0, 0, 1, false, 0, 0));
+            enemies.push(newEnemy(cnv.width / enemyWaves[n][i].length, 100, 5, 0, 0, 0, 1, false, 0, 0));
             customEnemies();
         }
     }

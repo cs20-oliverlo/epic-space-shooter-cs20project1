@@ -34,7 +34,6 @@ function update(timestamp) {
     deltaTime = (timestamp - lastTimestamp) / perfectFrameTime;
     lastTimestamp = timestamp;
 
-    // YOUR FRAME CODE HERE!
     draw();
 }
 
