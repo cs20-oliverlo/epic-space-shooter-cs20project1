@@ -2,7 +2,7 @@
     "w": 0,
     "h": 0,
     "r": 10,
-    "type": "discus",
+    "id": "discus",
     "xVel": 4,
     "yVel": 4,
     "canShoot": false

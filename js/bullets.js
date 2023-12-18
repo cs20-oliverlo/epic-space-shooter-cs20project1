@@ -5,25 +5,19 @@ fetch('json/bulletTypes.json')
     .then((data) => bulletType = data);
 
 function drawBullets(n) {
-    if (bullets[n].type === "laser") {
+    if (bullets[n].id === "laser") {
         ctx.lineWidth = 3;
         ctx.strokeStyle = bullets[n].color;
         ctx.beginPath();
         ctx.moveTo(bullets[n].x, bullets[n].y);
         ctx.lineTo(bullets[n].x, bullets[n].y + bullets[n].h);
         ctx.stroke();
-        if (bullets[bullets.length - 2].y === bullets[bullets.length - 1].y) {
-            console.log("same");
-        }
-        if (bullets[bullets.length - 2].y !== bullets[bullets.length - 1].y) {
-            console.log("diff");
-        }
     }
 }
 
 function customBullet(n) {
     for (let i = 0; i < bulletType.length; i++) {
-        if (bullets[bullets.length - 1].type === bulletType[i].type) {
+        if (bullets[bullets.length - 1].id === bulletType[i].id) {
             bullets[bullets.length - 1].h = bulletType[i].h;
             bullets[bullets.length - 1].yVel = bulletType[i].yVel;
         }

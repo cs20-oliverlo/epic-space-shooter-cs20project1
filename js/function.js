@@ -29,6 +29,8 @@ function runGame() {
     // Pace levels so each enemy wave has appropriate screen time
     // Chooses the right level to load
     // do need level data/json file???
+
+    levelSequencer("level1");
 }
 
 function pauseGame() {
@@ -66,7 +68,7 @@ function newPlayer(xP, yP, wP, hP, xVelP, yVelP, reloadTimerP, reloadTargetP, li
     }
 }
 
-function newEnemy(xP, yP, wP, hP, rP, colorP, healthP, xVelP, yVelP, xDirectionP, yDirectionP, canShootP, reloadTimerP, reloadTargetP) {
+function newEnemy(xP, yP, wP, hP, rP, colorP, healthP, idP, xVelP, yVelP, xDirectionP, yDirectionP, canShootP, reloadTimerP, reloadTargetP) {
     return {
         x: xP,
         y: yP,
@@ -75,6 +77,7 @@ function newEnemy(xP, yP, wP, hP, rP, colorP, healthP, xVelP, yVelP, xDirectionP
         r: rP,
         color: colorP,
         health: healthP,
+        id: idP,
         xVel: xVelP,
         yVel: yVelP,
         xDirection: xDirectionP,
@@ -85,7 +88,7 @@ function newEnemy(xP, yP, wP, hP, rP, colorP, healthP, xVelP, yVelP, xDirectionP
     }
 }
 
-function newBullet(xP, yP, wP, hP, rP, colorP, teamP, typeP, xVelP, yVelP, directionP) {
+function newBullet(xP, yP, wP, hP, rP, colorP, teamP, idP, xVelP, yVelP, directionP) {
     return {
         x: xP,
         y: yP,
@@ -94,7 +97,7 @@ function newBullet(xP, yP, wP, hP, rP, colorP, teamP, typeP, xVelP, yVelP, direc
         r: rP,
         color: colorP,
         team: teamP,
-        type: typeP,
+        id: idP,
         xVel: xVelP,
         yVel: yVelP,
         direction: directionP
@@ -123,6 +126,7 @@ function reset() {
     player.push(newPlayer(cnv.width / 2, 580, 20, 50, 6, 6, 5, 5, 3, false, false, false, false, false));
 
     enemies = [];
+    enemyWaves = [];
 
     bullets = [];
 

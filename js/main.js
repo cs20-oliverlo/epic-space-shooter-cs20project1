@@ -15,13 +15,14 @@ let keys;
 let camera;
 let player;
 let enemies;
+let enemyWaves;
 let bullets;
 let color;
 reset();
 
 // Playable at any monitors refresh rate (I think, I have not tried it on other than the school ones)
 
-const perfectFrameTime = 1000 / 60;
+const perfectFrameTime = 1000 / 10;
 let deltaTime = 0;
 let lastTimestamp = 0;
 
