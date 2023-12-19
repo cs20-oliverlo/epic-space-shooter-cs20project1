@@ -1,12 +1,13 @@
 function levelSequencer(level) {
-    let currentLevel;
 
-    fetch(`json/${level}.json`)
-    .then((res) => res.json())
-    .then((data) => currentLevel = data);
+    fetch(`json/levels/${level}.json`)
+        .then((res) => res.json())
+        .then((data) => currentLevel = data);
+    
+    console.log(currentLevel);
 
     for (let i = 0; i < currentLevel.length; i++) {
-        for (let j = 0; j < currentLevel[i][j].length; i++) {
+        for (let j = 0; j < currentLevel[i].length; i++) {
             
         }
     }

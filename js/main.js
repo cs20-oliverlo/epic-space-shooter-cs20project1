@@ -11,8 +11,11 @@ let mouseIsPressed = false;
 
 // Global Variables (Reset)
 let state;
+let deltaTime = 0;
+let lastTimestamp = 0;
 let keys;
 let camera;
+let currentLevel;
 let player;
 let enemies;
 let enemyWaves;
@@ -22,20 +25,18 @@ reset();
 
 // Playable at any monitors refresh rate (I think, I have not tried it on other than the school ones)
 
-const perfectFrameTime = 1000 / 10;
-let deltaTime = 0;
-let lastTimestamp = 0;
-
 function start() {
     requestAnimationFrame(update);
 }
 
 function update(timestamp) {
     requestAnimationFrame(update);
-    deltaTime = (timestamp - lastTimestamp) / perfectFrameTime;
-    lastTimestamp = timestamp;
+    let now = performance.now();
+    deltaTime = now - lastTimestamp;
+    lastTimestamp = now;
 
     draw();
+    console.log(deltaTime);
 }
 
 start();

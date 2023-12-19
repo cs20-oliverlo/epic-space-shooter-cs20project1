@@ -25,12 +25,7 @@ function runGame() {
         bulletDetection(i);
     }
 
-    // Make levels function that has other things that:
-    // Pace levels so each enemy wave has appropriate screen time
-    // Chooses the right level to load
-    // do need level data/json file???
-
-    levelSequencer("level1");
+    // levelSequencer("level1");
 }
 
 function pauseGame() {
@@ -123,7 +118,7 @@ function reset() {
 
     player = [];
     // (x, y, width, height, xVelocity, yVelocity, reloadTime, reloadTarget, shoot, up, left, right down)
-    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 6, 6, 5, 5, 3, false, false, false, false, false));
+    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 1/3, 1/3, 0.01, 50, 3, false, false, false, false, false));
 
     enemies = [];
     enemyWaves = [];
