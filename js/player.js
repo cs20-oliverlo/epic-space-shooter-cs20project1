@@ -1,3 +1,22 @@
+function newPlayer(xP, yP, wP, hP, xVelP, yVelP, reloadTimerP, reloadTargetP, livesP, shootP, upP, leftP, rightP, downP) {
+    return {
+        x: xP,
+        y: yP,
+        w: wP,
+        h: hP,
+        xVel: xVelP,
+        yVel: yVelP,
+        reloadTimer: reloadTimerP,
+        reloadTarget: reloadTargetP,
+        lives: livesP,
+        shoot: shootP,
+        up: upP,
+        left: leftP,
+        right: rightP,
+        down: downP
+    }
+}
+
 function drawPlayer() {
     // Thruster
     ctx.lineWidth = 2;

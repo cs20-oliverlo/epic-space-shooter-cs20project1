@@ -3,7 +3,27 @@ let enemyType;
 fetch('json/enemyTypes.json')
     .then((res) => res.json())
     .then((data) => enemyType = data);
-    
+
+function newEnemy(xP, yP, wP, hP, rP, colorP, healthP, idP, xVelP, yVelP, xDirectionP, yDirectionP, canShootP, reloadTimerP, reloadTargetP) {
+    return {
+        x: xP,
+        y: yP,
+        w: wP,
+        h: hP,
+        r: rP,
+        color: colorP,
+        health: healthP,
+        id: idP,
+        xVel: xVelP,
+        yVel: yVelP,
+        xDirection: xDirectionP,
+        yDirection: yDirectionP,
+        canShoot: canShootP,
+        reloadTimer: reloadTimerP,
+        reloadTarget: reloadTargetP
+    }
+}
+
 function drawEnemies(n) {
     if (enemy[n].id === "discus") {
         ctx.lineWidth = 3;

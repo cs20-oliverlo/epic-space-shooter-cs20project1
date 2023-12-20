@@ -9,18 +9,26 @@ cnv.height = 720;
 
 let mouseIsPressed = false;
 
-// Global Variables (Reset)
-let state;
+// Global Variables
 let deltaTime = 0;
 let lastTimestamp = 0;
-let keys;
-let camera;
-let currentLevel;
-let player;
-let enemies;
-let enemyWaves;
-let bullets;
-let color;
+
+// Reset Variables
+    // General Game Stuff
+    let state;
+    let keys;
+    let camera;
+    let levelTime = 0;
+    let currentLevel;
+    // Player
+    let player;
+    // Enemies
+    let enemies;
+    let enemyWaves;
+    // Bullets
+    let bullets;
+    // Color Palette
+    let color;
 reset();
 
 // Playable at any monitors refresh rate (I think, I have not tried it on other than the school ones)
@@ -29,21 +37,20 @@ function start() {
     requestAnimationFrame(update);
 }
 
-function update(timestamp) {
+function update() {
     requestAnimationFrame(update);
     let now = performance.now();
     deltaTime = now - lastTimestamp;
     lastTimestamp = now;
 
-    draw();
-    console.log(deltaTime);
+    gameStates();
 }
 
 start();
 
-// Draw Function
+// Big Boss Game Function
 
-function draw() {
+function gameStates() {
     if (state === "start") {
         drawStart();
     } else if (state === "gameon") {

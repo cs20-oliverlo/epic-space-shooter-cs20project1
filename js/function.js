@@ -8,6 +8,8 @@ function drawStart() {
 }
 
 function runGame() {
+    levelTimer(true);
+
     drawMainComponents();
 
     for (let i = 0; i < player.length; i++) {
@@ -24,8 +26,6 @@ function runGame() {
         bulletMovement(i);
         bulletDetection(i);
     }
-
-    // levelSequencer("level1");
 }
 
 function pauseGame() {
@@ -42,61 +42,6 @@ function drawMainComponents() {
     ctx.fillRect(0, 0, cnv.width, cnv.height);
     
     drawPlayer();
-}
-
-function newPlayer(xP, yP, wP, hP, xVelP, yVelP, reloadTimerP, reloadTargetP, livesP, shootP, upP, leftP, rightP, downP) {
-    return {
-        x: xP,
-        y: yP,
-        w: wP,
-        h: hP,
-        xVel: xVelP,
-        yVel: yVelP,
-        reloadTimer: reloadTimerP,
-        reloadTarget: reloadTargetP,
-        lives: livesP,
-        shoot: shootP,
-        up: upP,
-        left: leftP,
-        right: rightP,
-        down: downP
-    }
-}
-
-function newEnemy(xP, yP, wP, hP, rP, colorP, healthP, idP, xVelP, yVelP, xDirectionP, yDirectionP, canShootP, reloadTimerP, reloadTargetP) {
-    return {
-        x: xP,
-        y: yP,
-        w: wP,
-        h: hP,
-        r: rP,
-        color: colorP,
-        health: healthP,
-        id: idP,
-        xVel: xVelP,
-        yVel: yVelP,
-        xDirection: xDirectionP,
-        yDirection: yDirectionP,
-        canShoot: canShootP,
-        reloadTimer: reloadTimerP,
-        reloadTarget: reloadTargetP
-    }
-}
-
-function newBullet(xP, yP, wP, hP, rP, colorP, teamP, idP, xVelP, yVelP, directionP) {
-    return {
-        x: xP,
-        y: yP,
-        w: wP,
-        h: hP,
-        r: rP,
-        color: colorP,
-        team: teamP,
-        id: idP,
-        xVel: xVelP,
-        yVel: yVelP,
-        direction: directionP
-    }
 }
 
 function reset() {
@@ -116,9 +61,11 @@ function reset() {
         y: 0
     };
 
+    levelTime = 0;
+
     player = [];
     // (x, y, width, height, xVelocity, yVelocity, reloadTime, reloadTarget, shoot, up, left, right down)
-    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 1/3, 1/3, 0.01, 50, 3, false, false, false, false, false));
+    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 1/3, 1/3, 0, 0, 3, false, false, false, false, false));
 
     enemies = [];
     enemyWaves = [];

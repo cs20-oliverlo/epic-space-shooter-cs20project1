@@ -4,6 +4,23 @@ fetch('json/bulletTypes.json')
     .then((res) => res.json())
     .then((data) => bulletType = data);
 
+
+function newBullet(xP, yP, wP, hP, rP, colorP, teamP, idP, xVelP, yVelP, directionP) {
+    return {
+        x: xP,
+        y: yP,
+        w: wP,
+        h: hP,
+        r: rP,
+        color: colorP,
+        team: teamP,
+        id: idP,
+        xVel: xVelP,
+        yVel: yVelP,
+        direction: directionP
+    }
+}
+
 function drawBullets(n) {
     if (bullets[n].id === "laser") {
         ctx.lineWidth = 3;
@@ -20,6 +37,10 @@ function customBullet(n) {
         if (bullets[bullets.length - 1].id === bulletType[i].id) {
             bullets[bullets.length - 1].h = bulletType[i].h;
             bullets[bullets.length - 1].yVel = bulletType[i].yVel;
+        }
+
+        if (bullets[bullets.length - 1].team === "player" && bullets[bullets.length - 1].type === bulletType[i].type) {
+            player[n].reloadTarget = bulletType[i].reloadTarget;
         }
     }
 

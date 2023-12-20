@@ -1,7 +1,7 @@
 function controls() {
     if (state === "start") {
         if (keys.w === true || keys.a === true || keys.d === true || keys.s === true || keys.space === true || keys.shiftLeft === true || mouseIsPressed === true) {
-            state = "gameon";
+            state = "gameon";            
         }
     } else if (state === "gameon") {
         player[0].up = keys.w;

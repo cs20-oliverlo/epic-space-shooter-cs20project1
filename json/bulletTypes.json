@@ -4,5 +4,6 @@
     "r": 0,
     "id": "laser",
     "xVel": 0,
-    "yVel": 0.5
+    "yVel": 0.8,
+    "reloadTarget": 75
 }]
