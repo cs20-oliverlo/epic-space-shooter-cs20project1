@@ -24,7 +24,6 @@ let lastTimestamp = 0;
     let player;
     // Enemies
     let enemies;
-    let enemyWaves;
     // Bullets
     let bullets;
     // Color Palette

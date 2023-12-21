@@ -45,12 +45,27 @@ function customEnemies() {
     }
 }
 
-function enemyFormation(n) {
-    for (let i = 0; i < enemyWaves[n].length; i++) {
-        for (let j = 0; j < enemyWaves[n][i].length; j++) {
-            // x, y, health, xVel, yVel, xDirection, yDirection, canShoot, reloadTimer, reloadTarget
-            enemies.push(newEnemy(cnv.width / enemyWaves[n][i].length, 100, 5, 0, 0, 0, 1, false, 0, 0));
+function enemyFormation(n1, n2) {
+    let enemyWaves = currentLevel[n1];
+
+    for (let i = 0; i < enemyWaves[n1].length; i++) {
+        for (let j = 1; j < enemyWaves[n1][i].length; j++) {
+            // x, y, w, h, r, color, health, id, xVel, yVel, xDirection, yDirection, canShoot, reloadTimer, reloadTarget
+            enemies.push(newEnemy(x, y, w, h, r, color, health, id, xvel, yvel, etc));
             customEnemies();
         }
     }
 }
+
+
+// [[
+//     5,
+//     [0, "discus", 0],
+//     [0, 0, 0],
+//     [0, 0, 0]
+// ], [
+//     2,
+//     [0, "discus", 0],
+//     [0, 0, 0],
+//     [0, 0, 0]
+// ]]

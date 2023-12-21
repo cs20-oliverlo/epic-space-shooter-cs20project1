@@ -8,6 +8,7 @@ function drawStart() {
 }
 
 function runGame() {
+    startLevel("level1");
     levelTimer(true);
 
     drawMainComponents();
@@ -68,7 +69,6 @@ function reset() {
     player.push(newPlayer(cnv.width / 2, 580, 20, 50, 1/3, 1/3, 0, 0, 3, false, false, false, false, false));
 
     enemies = [];
-    enemyWaves = [];
 
     bullets = [];
 
