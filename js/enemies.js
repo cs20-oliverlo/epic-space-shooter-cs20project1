@@ -25,22 +25,24 @@ function newEnemy(xP, yP, wP, hP, rP, colorP, healthP, idP, xVelP, yVelP, xDirec
 }
 
 function drawEnemies(n) {
-    if (enemy[n].id === "discus") {
+    if (enemies[n].id === "discus") {
         ctx.lineWidth = 3;
-        ctx.strokeStyle = enemies[i].color;
+        ctx.strokeStyle = enemies[n].color;
         ctx.beginPath();
-        ctx.arc(enemies[i].x, enemies[i].y, enemies[i].r, 0, 2 * Math.PI);
+        ctx.arc(enemies[n].x, enemies[n].y, enemies[n].r, 0, 2 * Math.PI);
         ctx.stroke();
     }
 }
 
 function customEnemies() {
-    for (let i = 0; i < enemies.length; i++) {
+    for (let i = 0; i < enemyType.length; i++) {
         if (enemies[enemies.length - 1].id === enemyType[i].id) {
             enemies[enemies.length - 1].r = enemyType[i].r;
             enemies[enemies.length - 1].xVel = enemyType[i].xVel;
             enemies[enemies.length - 1].yVel = enemyType[i].yVel;
             enemies[enemies.length - 1].canShoot = enemyType[i].canShoot;
+        } else {
+            enemies[enemies.length - 1].pop;
         }
     }
 }
@@ -48,12 +50,10 @@ function customEnemies() {
 function enemyFormation(n1, n2) {
     let enemyWaves = currentLevel[n1];
 
-    for (let i = 0; i < enemyWaves[n1].length; i++) {
-        for (let j = 1; j < enemyWaves[n1][i].length; j++) {
-            // x, y, w, h, r, color, health, id, xVel, yVel, xDirection, yDirection, canShoot, reloadTimer, reloadTarget
-            enemies.push(newEnemy(x, y, w, h, r, color, health, id, xvel, yvel, etc));
-            customEnemies();
-        }
+    for (let i = 0; i < enemyWaves[n2].length; i++) {
+        // x, y, w, h, r, color, health, id, xVel, yVel, xDirection, yDirection, canShoot, reloadTimer, reloadTarget
+        enemies.push(newEnemy(480 / (enemyWaves[n2].length + 1) + (i*480/(enemyWaves[n2].length + 1)), 100, 0, 0, 0, "white", 10, enemyWaves[n2][i], 0, 0, 0, 1, false, 0, 0));
+        customEnemies();
     }
 }
 
