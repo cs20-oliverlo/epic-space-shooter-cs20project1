@@ -10,20 +10,21 @@ function startLevel(level) {
             .then((res) => res.json())
             .then((data) => currentLevel = data)
             .then(levelSequencer);
+    console.log(currentLevel, newLevel);
+
     }
+
 }
 
 function levelSequencer() {
     for (let i = 0; i < currentLevel.length; i++) {
-        for (let j = 1; j < currentLevel[i].length; j++) {
-            // Delay Wave
-            if (levelTime > currentLevel[i][0]) {
-                // Load Wave
-                enemyFormation(i, j);
-                console.log("ok");
-            }
+         // Delay Wave
+        if (levelTime > currentLevel[i][0]) {
+            // Load Wave
+            enemyFormation(i);
         }
     }
+    console.log("once");
 }
 
 function levelTimer(state) {
@@ -31,15 +32,3 @@ function levelTimer(state) {
         levelTime += deltaTime / 1000;
     }
 }
-
-// [[
-//     0,
-//     [0, "discus", 0],
-//     [0, 0, 0],
-//     [0, 0, 0]
-// ], [
-//     1,
-//     [0, "discus", 0],
-//     [0, 0, 0],
-//     [0, 0, 0]
-// ]]

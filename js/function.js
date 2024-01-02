@@ -20,6 +20,7 @@ function runGame() {
 
     for (let i = 0; i < enemies.length; i++) {
         drawEnemies(i);
+        enemyMovement(i);
     }
 
     for (let i = 0; i < bullets.length; i++) {
