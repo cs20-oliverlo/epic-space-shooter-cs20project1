@@ -8,7 +8,10 @@ function drawStart() {
 }
 
 function runGame() {
-    startLevel("level1");
+    if (currentLevel !== undefined) {
+        levelSequencer();
+    }
+    
     levelTimer(true);
 
     drawMainComponents();

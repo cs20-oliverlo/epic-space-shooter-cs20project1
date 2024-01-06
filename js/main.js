@@ -28,7 +28,18 @@ let lastTimestamp = 0;
     let bullets;
     // Color Palette
     let color;
+
 reset();
+
+// Load First Level
+function startLevel() {
+    loadLevel("level1");
+
+    fetch(`json/levels/level1.json`)
+    .then((res) => res.json())
+    .then((data) => currentLevel = data)
+}
+startLevel();
 
 // Playable at any monitors refresh rate (I think, I have not tried it on other than the school ones)
 
