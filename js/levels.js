@@ -10,21 +10,19 @@ function loadLevel(level) {
             .then((res) => res.json())
             .then((data) => currentLevel = data)
     }
-    console.log(currentLevel, newLevel, level);
 }
 
 function levelSequencer() {
-    for (let i = currentLevel.length - 1; i > -1; i--) {
-        console.log(levelTime, enemies.length);
+    for (let i = 0; i < currentLevel.length; i++) {
         // Delay Wave
-        if (levelTime >= currentLevel[i][0] + 0.005 && levelTime <= currentLevel[i][0] - 0.005) {
+        if (levelTime >= currentLevel[i][0] && currentLevel[i][currentLevel[i].length - 1] === false) {
             // Load Wave
             enemyFormation(i);
-            console.log("did the thing");
+            // console.log(currentLevel[i]);
+            currentLevel[i][currentLevel[i].length - 1] = true;
             return;
         }
     }
-    console.log("once");
 }
 
 function levelTimer(state) {

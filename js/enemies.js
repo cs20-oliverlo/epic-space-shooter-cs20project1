@@ -25,7 +25,7 @@ function newEnemy(xP, yP, wP, hP, rP, colorP, healthP, idP, xVelP, yVelP, xDirec
 }
 
 function drawEnemies(n) {
-    if (enemies[n].x < camera.x || enemies[n].x > camera.x + cnv.width || enemies[n].y < camera.y || enemies[n].y > camera.y + cnv.height) {
+    if (enemies[n].x > camera.x && enemies[n].x < camera.x + cnv.width && enemies[n].y > camera.y && enemies[n].y < camera.y + cnv.height) {
         if (enemies[n].id === "discus") {
             ctx.lineWidth = 3;
             ctx.strokeStyle = enemies[n].color;
@@ -38,12 +38,12 @@ function drawEnemies(n) {
 
 function enemyMovement(n) {
     if (enemies[n].id === "discus") {
-        enemies[n].y += enemies[n].xVel * enemies[n].xDirection * deltaTime;
+        enemies[n].x += enemies[n].xVel * enemies[n].xDirection * deltaTime;
         enemies[n].y += enemies[n].yVel * enemies[n].yDirection * deltaTime;
     }
 }
 
-function customEnemies() {
+function customEnemies(n) {
     for (let i = 0; i < enemyType.length; i++) {
         if (enemies[enemies.length - 1].id === enemyType[i].id) {
             enemies[enemies.length - 1].r = enemyType[i].r;
@@ -51,25 +51,36 @@ function customEnemies() {
             enemies[enemies.length - 1].yVel = enemyType[i].yVel;
             enemies[enemies.length - 1].canShoot = enemyType[i].canShoot;
         } else {
-            enemies[enemies.length - 1].pop;
+            enemies.pop(enemies.length - 1);
+        }
+
+        if (enemies[enemies.length - 1].x === 0) {
+
+        } else if (enemies[enemies.length - 1].y === 0) {
+            if (enemies[enemies.length - 1].yDirection === -1) {
+                enemies[enemies.length - 1].y += n + cnv.height;
+            } else if (enemies[enemies.length - 1].yDirection === 1) {
+                enemies[enemies.length - 1].y += -n;
+            }
         }
     }
 }
 
 function enemyFormation(n1) {
-    for (let i = 0; i < currentLevel[n1].length; i++) {
-        // Delay Wave
-        if (levelTime > currentLevel[n1][0]) {
-            let enemyWaves = currentLevel[n1];
-            let n = i * 50;
-        
-            for (let j = 0; j < enemyWaves[i].length; j++) {
-                // x, y, w, h, r, color, health, id, xVel, yVel, xDirection, yDirection, canShoot, reloadTimer, reloadTarget
-                enemies.push(newEnemy(480 / (enemyWaves[i].length + 1) + (j * 480 / (enemyWaves[i].length + 1)), n, 0, 0, 0, "white", 10, enemyWaves[i][j], 0, 0, 0, 1, false, 0, 0));
-                customEnemies();
+    for (let i = 1; i < currentLevel[n1].length - 1; i++) {
+        let enemyWaves = currentLevel[n1];
+        let n = (i + 1) * 50;
+        // console.log(n);
+    
+        for (let j = 0; j < enemyWaves[i].length; j++) {
+            // x, y, w, h, r, color, health, id, xVel, yVel, xDirection, yDirection, canShoot, reloadTimer, reloadTarget
+            if (enemyWaves[i][j].xDirection === 0) {
+                enemies.push(newEnemy(cnv.width / (enemyWaves[i].length + 1) + (j * cnv.width / (enemyWaves[i].length + 1)), 0, 0, 0, 0, "white", 10, enemyWaves[i][j].id, 0, 0, enemyWaves[i][j].xDirection, enemyWaves[i][j].yDirection, false, 0, 0));
+                customEnemies(n);
+            } else if (enemyWaves[i][j].yDirection === 0) {
+                enemies.push(newEnemy(0, cnv.width / (enemyWaves[i].length + 1) + (j * cnv.width / (enemyWaves[i].length + 1)), 0, 0, 0, "white", 10, enemyWaves[i][j].id, 0, 0, enemyWaves[i][j].xDirection, enemyWaves[i][j].yDirection, false, 0, 0));
+                customEnemies(n);
             }
-            n += i * 50;
-            console.log("1 row");
         }
     }
 }

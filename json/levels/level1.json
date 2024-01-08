@@ -1,11 +1,14 @@
 [[
-    0,
-    ["discus", "discus", "discus"],
-    ["discus", "discus", "discus"],
-    ["discus", "discus", "discus"]
-], [
-    2,
-    [0, "discus", 0],
-    [0, 0, 0],
-    [0, 0, 0]
+    1,
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    false
+] , [
+    5,
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "none"}, {"id": "discus", "xDirection": 1, "yDirection": 0}, {"id": "none"}],
+    false
 ]]
