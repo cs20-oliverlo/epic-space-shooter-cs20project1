@@ -5,13 +5,14 @@ fetch('json/bulletTypes.json')
     .then((data) => bulletType = data);
 
 
-function newBullet(xP, yP, wP, hP, rP, colorP, teamP, idP, xVelP, yVelP, directionP) {
+function newBullet(xP, yP, wP, hP, rP, damageP, colorP, teamP, idP, xVelP, yVelP, directionP) {
     return {
         x: xP,
         y: yP,
         w: wP,
         h: hP,
         r: rP,
+        damage: damageP,
         color: colorP,
         team: teamP,
         id: idP,
@@ -36,6 +37,7 @@ function customBullet(n) {
     for (let i = 0; i < bulletType.length; i++) {
         if (bullets[bullets.length - 1].id === bulletType[i].id) {
             bullets[bullets.length - 1].h = bulletType[i].h;
+            bullets[bullets.length - 1].damage = bulletType[i].damage;
             bullets[bullets.length - 1].yVel = bulletType[i].yVel;
         }
 
@@ -62,10 +64,4 @@ function customBullet(n) {
 function bulletMovement(n) {
     bullets[n].x += bullets[n].xVel * deltaTime;
     bullets[n].y += bullets[n].yVel * bullets[n].direction * deltaTime;
-}
-
-function bulletDetection(n) {
-    if (bullets[n].y + bullets[n].h < 0) {
-        bullets.splice(n, 1);
-    }
 }

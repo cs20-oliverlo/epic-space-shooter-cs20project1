@@ -2,6 +2,7 @@
     "w": 0,
     "h": 0,
     "r": 10,
+    "health": 15,
     "id": "discus",
     "xVel": 0.25,
     "yVel": 0.25,

@@ -43,10 +43,17 @@ function enemyMovement(n) {
     }
 }
 
+function killEnemy(n) {
+    if (enemies[n].type === "discus") {
+        enemies.splice(n, 1);
+    }
+}
+
 function customEnemies(n) {
     for (let i = 0; i < enemyType.length; i++) {
         if (enemies[enemies.length - 1].id === enemyType[i].id) {
             enemies[enemies.length - 1].r = enemyType[i].r;
+            enemies[enemies.length - 1].health = enemyType[i].health;
             enemies[enemies.length - 1].xVel = enemyType[i].xVel;
             enemies[enemies.length - 1].yVel = enemyType[i].yVel;
             enemies[enemies.length - 1].canShoot = enemyType[i].canShoot;
@@ -79,11 +86,10 @@ function enemyFormation(n1) {
             // x, y, w, h, r, color, health, id, xVel, yVel, xDirection, yDirection, canShoot, reloadTimer, reloadTarget
             if (enemyWaves[i][j].xDirection === 0) {
                 enemies.push(newEnemy(cnv.width / (enemyWaves[i].length + 1) + (j * cnv.width / (enemyWaves[i].length + 1)), 0, 0, 0, 0, "white", 10, enemyWaves[i][j].id, 0, 0, enemyWaves[i][j].xDirection, enemyWaves[i][j].yDirection, false, 0, 0));
-                customEnemies(n);
             } else if (enemyWaves[i][j].yDirection === 0) {
                 enemies.push(newEnemy(0, cnv.width / (enemyWaves[i].length + 1) + (j * cnv.width / (enemyWaves[i].length + 1)), 0, 0, 0, "white", 10, enemyWaves[i][j].id, 0, 0, enemyWaves[i][j].xDirection, enemyWaves[i][j].yDirection, false, 0, 0));
-                customEnemies(n);
             }
+            customEnemies(n);
         }
     }
 }

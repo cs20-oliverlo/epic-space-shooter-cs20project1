@@ -14,6 +14,8 @@ function runGame() {
     
     levelTimer(true);
 
+    collision();
+
     drawMainComponents();
 
     for (let i = 0; i < player.length; i++) {
@@ -24,12 +26,12 @@ function runGame() {
     for (let i = 0; i < enemies.length; i++) {
         drawEnemies(i);
         enemyMovement(i);
+        killEnemy(i);
     }
 
     for (let i = 0; i < bullets.length; i++) {
         drawBullets(i);
         bulletMovement(i);
-        bulletDetection(i);
     }
 }
 
