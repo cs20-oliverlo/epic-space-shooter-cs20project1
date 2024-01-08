@@ -55,7 +55,11 @@ function customEnemies(n) {
         }
 
         if (enemies[enemies.length - 1].x === 0) {
-
+            if (enemies[enemies.length - 1].yDirection === -1) {
+                enemies[enemies.length - 1].y += n + cnv.height;
+            } else if (enemies[enemies.length - 1].yDirection === 1) {
+                enemies[enemies.length - 1].y += -n;
+            }
         } else if (enemies[enemies.length - 1].y === 0) {
             if (enemies[enemies.length - 1].yDirection === -1) {
                 enemies[enemies.length - 1].y += n + cnv.height;
@@ -67,10 +71,9 @@ function customEnemies(n) {
 }
 
 function enemyFormation(n1) {
-    for (let i = 1; i < currentLevel[n1].length - 1; i++) {
+    for (let i = 1; i < currentLevel[n1].length; i++) {
         let enemyWaves = currentLevel[n1];
         let n = (i + 1) * 50;
-        // console.log(n);
     
         for (let j = 0; j < enemyWaves[i].length; j++) {
             // x, y, w, h, r, color, health, id, xVel, yVel, xDirection, yDirection, canShoot, reloadTimer, reloadTarget

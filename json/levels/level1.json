@@ -1,14 +1,12 @@
 [[
-    1,
+    {"time": 1, "loaded": false},
     [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
     [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
-    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
-    false
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}]
 ] , [
-    5,
+    {"time": 5, "loaded": false},
     [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
     [{"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}],
     [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
-    [{"id": "none"}, {"id": "discus", "xDirection": 1, "yDirection": 0}, {"id": "none"}],
-    false
+    [{"id": "none"}, {"id": "discus", "xDirection": 1, "yDirection": 0}, {"id": "none"}]
 ]]

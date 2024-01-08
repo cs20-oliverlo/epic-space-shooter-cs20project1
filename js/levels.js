@@ -15,11 +15,10 @@ function loadLevel(level) {
 function levelSequencer() {
     for (let i = 0; i < currentLevel.length; i++) {
         // Delay Wave
-        if (levelTime >= currentLevel[i][0] && currentLevel[i][currentLevel[i].length - 1] === false) {
+        if (levelTime >= currentLevel[i][0].time && currentLevel[i][0].loaded === false) {
             // Load Wave
             enemyFormation(i);
-            // console.log(currentLevel[i]);
-            currentLevel[i][currentLevel[i].length - 1] = true;
+            currentLevel[i][0].loaded = true;
             return;
         }
     }
