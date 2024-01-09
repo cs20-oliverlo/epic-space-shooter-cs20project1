@@ -26,7 +26,7 @@ function runGame() {
     for (let i = 0; i < enemies.length; i++) {
         drawEnemies(i);
         enemyMovement(i);
-        killEnemy(i);
+        // killEnemy(i);
     }
 
     for (let i = 0; i < bullets.length; i++) {
@@ -72,7 +72,7 @@ function reset() {
 
     player = [];
     // (x, y, width, height, xVelocity, yVelocity, reloadTime, reloadTarget, shoot, up, left, right down)
-    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 1/3, 1/3, 0, 0, 3, false, false, false, false, false));
+    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 0.3333, 0.3333, 0, 0, 3, false, false, false, false, false));
 
     enemies = [];
 

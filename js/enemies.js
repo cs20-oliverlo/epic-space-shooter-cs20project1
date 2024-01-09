@@ -44,8 +44,10 @@ function enemyMovement(n) {
 }
 
 function killEnemy(n) {
-    if (enemies[n].type === "discus") {
-        enemies.splice(n, 1);
+    if (enemies[n].health <= 0) {
+        if (enemies[n].id === "discus") {
+            enemies.splice(n, 1);
+        }
     }
 }
 

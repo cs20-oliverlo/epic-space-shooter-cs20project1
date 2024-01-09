@@ -68,11 +68,11 @@ function playerMovement(n) {
 
 function playerShoot(n) {
     if (player[n].reloadTimer * deltaTime >= player[n].reloadTarget && player[n].shoot === true) {
-        // (x, y, width, height, radius, color, team, type, xVelocity, yVelocity, direction)
-        bullets.push(newBullet(0, 0, 0, 0, 0, "white", "player", "laser", 0, 0, 0));
+        // (x, y, width, height, radius, damage, color, team, type, xVelocity, yVelocity, direction)
+        bullets.push(newBullet(0, 0, 0, 0, 0, 5, "white", "player", "laser", 0, 0, 0));
         customBullet(n);
         bullets[bullets.length - 1].x -= 10;
-        bullets.push(newBullet(0, 0, 0, 0, 0, "white", "player", "laser", 0, 0, 0));
+        bullets.push(newBullet(0, 0, 0, 0, 0, 5, "white", "player", "laser", 0, 0, 0));
         customBullet(n);
         bullets[bullets.length - 1].x += 10;
         player[n].reloadTimer = 0;

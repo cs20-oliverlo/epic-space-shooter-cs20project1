@@ -5,6 +5,6 @@
     "damage": 5,
     "id": "laser",
     "xVel": 0,
-    "yVel": 0.8,
-    "reloadTarget": 75
+    "yVel": 1.25,
+    "reloadTarget": 50
 }]

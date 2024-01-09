@@ -5,16 +5,17 @@ function collision() {
 }
 
 function bulletDetection(n) {
-    if (bullets[n].type === "laser") {
+    if (bullets[n].y + bullets[n].h < 0) {
+        bullets.splice(n, 1);
+        console.log("border");
+    } else {
         for (let i = 0; i < enemies.length; i++) {
-            if (enemy.type === "discus") {
-                if (bullets[n].x > enemies[n].x - enemies[n].r && bullets[n].x < enemies[n].x + enemies[n].r && bullets[n].y < enemies[n].y + enemies[n].r && bullets[n].y + bullets[n].h > enemies[n].y - enemies[n].r) {
-                    enemies[n].health -= bullets[n].damage;
-                }
+            if (enemies[i].id === "discus" && bullets[n].x > enemies[i].x - enemies[i].r && bullets[n].x < enemies[i].x + enemies[i].r && bullets[n].y < enemies[i].y + enemies[i].r && bullets[n].y + bullets[n].h > enemies[i].y - enemies[i].r) {
+                enemies[i].health -= bullets[n].damage;
+                killEnemy(i);
                 bullets.splice(n, 1);
+                return;
             }
         }
-    } else if (bullets[n].y + bullets[n].h < 0) {
-        bullets.splice(n, 1);
     }
 }
