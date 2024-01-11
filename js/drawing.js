@@ -12,7 +12,11 @@ function drawMainComponents() {
 function drawPlayer() {
     // Thruster
     ctx.lineWidth = 2;
-    ctx.strokeStyle = color.babyBlue;
+    if (player[0].invincible === false) {
+        ctx.strokeStyle = color.babyBlue;
+    } else {
+        ctx.strokeStyle = color.white;
+    }
     ctx.beginPath();
     ctx.moveTo(11.5 + player[0].x, 25 + player[0].y - 15);
     ctx.lineTo(0 + player[0].x, 35 + player[0].y - 15);
@@ -21,7 +25,11 @@ function drawPlayer() {
 
     // Ship
     ctx.lineWidth = 2;
-    ctx.strokeStyle = color.darkerGreen;
+    if (player[0].invincible === false) {
+        ctx.strokeStyle = color.darkerGreen;
+    } else {
+        ctx.strokeStyle = color.white;
+    }
     ctx.beginPath();
     ctx.moveTo(0 + player[0].x, 0 + player[0].y - 15);
     ctx.lineTo(player[0].w / 2 + player[0].x, player[0].h / 2 + player[0].y - 15);

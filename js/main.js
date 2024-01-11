@@ -14,20 +14,20 @@ let deltaTime = 0;
 let lastTimestamp = 0;
 
 // Reset Variables
-    // General Game Stuff
-    let state;
-    let keys;
-    let camera;
-    let levelTime = 0;
-    let currentLevel;
-    // Player
-    let player;
-    // Enemies
-    let enemies;
-    // Bullets
-    let bullets;
-    // Color Palette
-    let color;
+// General Game Stuff
+let state;
+let keys;
+let camera;
+let levelTime = 0;
+let currentLevel;
+// Player
+let player;
+// Enemies
+let enemies;
+// Bullets
+let bullets;
+// Color Palette
+let color;
 
 reset();
 
@@ -41,8 +41,7 @@ function startLevel() {
 }
 startLevel();
 
-// Playable at any monitors refresh rate (I think, I have not tried it on other than the school ones)
-
+// Playable at any monitors refresh rate
 function start() {
     requestAnimationFrame(update);
 }
@@ -59,13 +58,12 @@ function update() {
 start();
 
 // Big Boss Game Function
-
 function gameStates() {
     if (state === "start") {
         drawStart();
     } else if (state === "gameon") {
         runGame();
-    } else if (state === "gamepause") {
+    } else if (state === "pause") {
         pauseGame();
     } else if (state === "gameover") {
         drawGameOver();
@@ -101,8 +99,17 @@ function keydownHandler(event) {
     if (event.code === "KeyS") {
         keys.s = true;
     }
+    if (event.code === "KeyJ") {
+        keys.j = true;
+    }
+    if (event.code === "KeyP") {
+        keys.p = true;
+    }
     if (event.code === "Space") {
         keys.space = true;
+    }
+    if (event.code === "Escape") {
+        keys.escape = false;
     }
     if (event.code === "ShiftLeft") {
         keys.shiftLeft = true;
@@ -123,8 +130,17 @@ function keyupHandler(event) {
     if (event.code === "KeyS") {
         keys.s = false;
     }
+    if (event.code === "KeyJ") {
+        keys.j = false;
+    }
+    if (event.code === "KeyP") {
+        keys.p = false;
+    }
     if (event.code === "Space") {
         keys.space = false;
+    }
+    if (event.code === "Escape") {
+        keys.escape = false;
     }
     if (event.code === "ShiftLeft") {
         keys.shiftLeft = false;

@@ -1,4 +1,4 @@
-function newPlayer(xP, yP, wP, hP, xVelP, yVelP, reloadTimerP, reloadTargetP, livesP, scoreP, multiplierP, shootP, upP, leftP, rightP, downP, slowP) {
+function newPlayer(xP, yP, wP, hP, xVelP, yVelP, reloadTimerP, reloadTargetP, livesP, scoreP, multiplierP, shootP, upP, leftP, rightP, downP, slowP, lastHitP, invincibleP) {
     return {
         x: xP,
         y: yP,
@@ -16,7 +16,9 @@ function newPlayer(xP, yP, wP, hP, xVelP, yVelP, reloadTimerP, reloadTargetP, li
         left: leftP,
         right: rightP,
         down: downP,
-        slow: slowP
+        slow: slowP,
+        lastHit: lastHitP,
+        invincible: invincibleP
     }
 }
 
@@ -45,16 +47,30 @@ function playerMovement(n) {
     }
 
     // Canvas/Camera Borders
-    if (player[n].x < 0) {
-        player[n].x = 0;
-    } else if (player[n].x > cnv.width) {
-        player[n].x = cnv.width;
+    if (player[n].x < 10) {
+        player[n].x = 10;
+    } else if (player[n].x > cnv.width - 10) {
+        player[n].x = cnv.width - 10;
     }
 
-    if (player[n].y + player[n].h / 2 < 0) {
-        player[n].y = 0 - player[n].h / 2;
+    if (player[n].y < 10) {
+        player[n].y = 10;
     } else if (player[n].y + player[n].h / 2 > cnv.height) {
         player[n].y = cnv.height - player[n].h / 2;
+    }
+}
+
+function playerDamaged(n) {
+    if (levelTime > player[n].lastHit + 1.5) {
+        player[n].lives--;
+        player[n].lastHit = levelTime;
+        player[n].invincible = true;
+    }
+}
+
+function playerIFrames(n) {
+    if (levelTime - player[n].lastHit > 1.5) {
+        player[n].invincible = false;
     }
 }
 

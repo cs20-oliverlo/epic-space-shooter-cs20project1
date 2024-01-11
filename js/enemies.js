@@ -87,9 +87,9 @@ function enemyFormation(n1) {
         for (let j = 0; j < enemyWaves[i].length; j++) {
             // x, y, w, h, r, color, health, id, xVel, yVel, xDirection, yDirection, canShoot, reloadTimer, reloadTarget
             if (enemyWaves[i][j].xDirection === 0) {
-                enemies.push(newEnemy(cnv.width / (enemyWaves[i].length + 1) + (j * cnv.width / (enemyWaves[i].length + 1)), 0, 0, 0, 0, "white", 0, 0, enemyWaves[i][j].id, 0, 0, enemyWaves[i][j].xDirection, enemyWaves[i][j].yDirection, false, 0, 0));
+                enemies.push(newEnemy(cnv.width / (enemyWaves[i].length + 1) + (j * cnv.width / (enemyWaves[i].length + 1)), 0, 0, 0, 0, color.violet, 0, 0, enemyWaves[i][j].id, 0, 0, enemyWaves[i][j].xDirection, enemyWaves[i][j].yDirection, false, 0, 0));
             } else if (enemyWaves[i][j].yDirection === 0) {
-                enemies.push(newEnemy(0, cnv.width / (enemyWaves[i].length + 1) + (j * cnv.width / (enemyWaves[i].length + 1)), 0, 0, 0, "white", 0, 0, enemyWaves[i][j].id, 0, 0, enemyWaves[i][j].xDirection, enemyWaves[i][j].yDirection, false, 0, 0));
+                enemies.push(newEnemy(0, cnv.width / (enemyWaves[i].length + 1) + (j * cnv.width / (enemyWaves[i].length + 1)), 0, 0, 0, color.violet, 0, 0, enemyWaves[i][j].id, 0, 0, enemyWaves[i][j].xDirection, enemyWaves[i][j].yDirection, false, 0, 0));
             }
             customEnemies(n);
         }

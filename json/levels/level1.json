@@ -1,5 +1,5 @@
 [[
-    {"time": 1, "loaded": false},
+    {"time": 0, "loaded": false},
     [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
     [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
     [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}]

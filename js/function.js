@@ -21,6 +21,7 @@ function runGame() {
     for (let i = 0; i < player.length; i++) {
         playerShoot(i);
         playerMovement(i);
+        playerIFrames(i)
     }
 
     for (let i = 0; i < enemies.length; i++) {
@@ -35,11 +36,12 @@ function runGame() {
         bulletMovement(i);
     }
 
-    console.log(player[0].lives);
+    // console.log(player[0].lives);
+    console.log(keys.j, mouseIsPressed);
 }
 
 function pauseGame() {
-
+    drawPause();
 }
 
 function drawGameOver() {
@@ -54,7 +56,10 @@ function reset() {
         a: false,
         d: false,
         s: false,
+        j: false,
+        p: false,
         space: false,
+        escape: false,
         shiftLeft: false
     };
 
@@ -67,7 +72,7 @@ function reset() {
 
     player = [];
     // (x, y, width, height, xVelocity, yVelocity, reloadTime, reloadTarget, lives, score, multiplier, shoot, up, left, right, down, slow)
-    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 0.25, 0.25, 0, 0, 3, 0, 1, false, false, false, false, false, false));
+    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 0.25, 0.25, 0, 0, 3, 0, 1, false, false, false, false, false, false, 0, false));
 
     enemies = [];
 
@@ -79,7 +84,7 @@ function reset() {
                 mint: "rgb(152, 232, 193)",
                 white: "rgb(255, 255, 255)",
                 babyBlue: "rgb(123, 173, 224)",
-                indigo: "rgb(80, 73, 203)",
-                violet: "rgb(60, 26, 120)"
+                indigo: "rgb(80, 100, 233)",
+                violet: "rgb(90, 66, 180)"
             };
 }
