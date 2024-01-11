@@ -1,10 +1,11 @@
+// Loading JSONs
 let bulletType;
 
 fetch('json/bulletTypes.json')
     .then((res) => res.json())
     .then((data) => bulletType = data);
 
-
+// Actual JS
 function newBullet(xP, yP, wP, hP, rP, damageP, colorP, teamP, idP, xVelP, yVelP, directionP) {
     return {
         x: xP,
@@ -19,17 +20,6 @@ function newBullet(xP, yP, wP, hP, rP, damageP, colorP, teamP, idP, xVelP, yVelP
         xVel: xVelP,
         yVel: yVelP,
         direction: directionP
-    }
-}
-
-function drawBullets(n) {
-    if (bullets[n].id === "laser") {
-        ctx.lineWidth = 3;
-        ctx.strokeStyle = bullets[n].color;
-        ctx.beginPath();
-        ctx.moveTo(bullets[n].x, bullets[n].y);
-        ctx.lineTo(bullets[n].x, bullets[n].y + bullets[n].h);
-        ctx.stroke();
     }
 }
 

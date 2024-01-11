@@ -3,6 +3,7 @@
     "h": 0,
     "r": 15,
     "health": 10,
+    "points": 10,
     "id": "discus",
     "xVel": 0.20,
     "yVel": 0.20,

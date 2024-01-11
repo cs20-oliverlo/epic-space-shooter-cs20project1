@@ -1,4 +1,4 @@
-function newPlayer(xP, yP, wP, hP, xVelP, yVelP, reloadTimerP, reloadTargetP, livesP, shootP, upP, leftP, rightP, downP) {
+function newPlayer(xP, yP, wP, hP, xVelP, yVelP, reloadTimerP, reloadTargetP, livesP, scoreP, multiplierP, shootP, upP, leftP, rightP, downP, slowP) {
     return {
         x: xP,
         y: yP,
@@ -9,37 +9,19 @@ function newPlayer(xP, yP, wP, hP, xVelP, yVelP, reloadTimerP, reloadTargetP, li
         reloadTimer: reloadTimerP,
         reloadTarget: reloadTargetP,
         lives: livesP,
+        score: scoreP,
+        multiplier: multiplierP,
         shoot: shootP,
         up: upP,
         left: leftP,
         right: rightP,
-        down: downP
+        down: downP,
+        slow: slowP
     }
 }
 
-function drawPlayer() {
-    // Thruster
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = color.babyBlue;
-    ctx.beginPath();
-    ctx.moveTo(11.5 + player[0].x, 25 + player[0].y);
-    ctx.lineTo(0 + player[0].x, 35 + player[0].y);
-    ctx.lineTo(-11.5 + player[0].x, 25 + player[0].y);
-    ctx.stroke();
-
-    // Ship
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = color.darkerGreen;
-    ctx.beginPath();
-    ctx.moveTo(0 + player[0].x, 0 + player[0].y);
-    ctx.lineTo(player[0].w / 2 + player[0].x, player[0].h / 2 + player[0].y);
-    ctx.lineTo(0 + player[0].x, 20 + player[0].y);
-    ctx.lineTo(-player[0].w / 2 + player[0].x, player[0].h / 2 + player[0].y);
-    ctx.closePath();
-    ctx.stroke();
-}
-
 function playerMovement(n) {
+    // Movement
     if (player[n].up === true) {
         player[n].y -= player[0].yVel * deltaTime;
     }
@@ -53,6 +35,16 @@ function playerMovement(n) {
         player[n].y += player[0].yVel * deltaTime;
     }
 
+    // Slow Down
+    if (player[n].slow === true) {
+        player[n].xVel = 0.25 / 1.5;
+        player[n].yVel = 0.25 / 1.5;
+    } else {
+        player[n].xVel = 0.25;
+        player[n].yVel = 0.25;
+    }
+
+    // Canvas/Camera Borders
     if (player[n].x < 0) {
         player[n].x = 0;
     } else if (player[n].x > cnv.width) {

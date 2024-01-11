@@ -27,12 +27,15 @@ function runGame() {
         drawEnemies(i);
         enemyMovement(i);
         // killEnemy(i);
+        removeEnemies(i);
     }
 
     for (let i = 0; i < bullets.length; i++) {
         drawBullets(i);
         bulletMovement(i);
     }
+
+    console.log(player[0].lives);
 }
 
 function pauseGame() {
@@ -41,14 +44,6 @@ function pauseGame() {
 
 function drawGameOver() {
 
-}
-
-function drawMainComponents() {
-    // Background
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, cnv.width, cnv.height);
-    
-    drawPlayer();
 }
 
 function reset() {
@@ -71,8 +66,8 @@ function reset() {
     levelTime = 0;
 
     player = [];
-    // (x, y, width, height, xVelocity, yVelocity, reloadTime, reloadTarget, shoot, up, left, right down)
-    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 0.4, 0.4, 0, 0, 3, false, false, false, false, false));
+    // (x, y, width, height, xVelocity, yVelocity, reloadTime, reloadTarget, lives, score, multiplier, shoot, up, left, right, down, slow)
+    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 0.25, 0.25, 0, 0, 3, 0, 1, false, false, false, false, false, false));
 
     enemies = [];
 

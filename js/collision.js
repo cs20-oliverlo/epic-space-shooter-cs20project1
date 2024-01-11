@@ -1,4 +1,8 @@
 function collision() {
+    // for (let i = 0; i < enemies.length; i++) {
+    //     enemyPlayerCollision(i);
+    // }
+
     for (let i = 0; i < bullets.length; i++) {
         bulletDetection(i);
     }
@@ -14,6 +18,25 @@ function bulletDetection(n) {
                 killEnemy(i);
                 bullets.splice(n, 1);
                 return;
+            }
+        }
+    }
+}
+
+function enemyPlayerCollision(n) {
+    for (let i = 0; i < player[i].length; i++) {
+        if (enemies[n].id === "discus") {
+            if (player[i].y - 5 < enemies[n].y + enemies[n].r && player[i].y - 5 > enemies[n].y - enemies[n].r && player[i].x + 5 < enemies[n].x + enemies[n].r && player[i].x + 5 > enemies[n].x - enemies[n].r) {
+                player[i].lives--;
+            }
+            if (player[i].y + player[i].h > enemies[n].y && player[i].y + player[i].h < enemies[n].y + enemies[n].h && player[i].x + player[i].v < enemies[n].x + enemies[n].w && player[i].x + player[i].w - player[i].v > enemies[n].x) {
+                player[i].lives--;
+            }
+            if (player[i].x < enemies[n]. x + enemies[n].w && player[i].x > enemies[n].x && player[i].y < enemies[n].y + enemies[n].h && player[i].y + player[i].h > enemies[n].y) {
+                player[i].lives--;
+            }
+            if (player[i].x + player[i].w > enemies[n]. x && player[i].x + player[i].w  < enemies[n].x + enemies[n].w && player[i].y < enemies[n].y + enemies[n].h && player[i].y + player[i].h > enemies[n].y) {
+                player[i].lives--;
             }
         }
     }

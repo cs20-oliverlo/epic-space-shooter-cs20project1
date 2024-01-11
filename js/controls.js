@@ -9,5 +9,6 @@ function controls() {
         player[0].right = keys.d;
         player[0].down = keys.s;
         player[0].shoot = mouseIsPressed;
+        player[0].slow = keys.shiftLeft;
     }
 }

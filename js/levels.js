@@ -1,3 +1,4 @@
+// Loading JSONs
 function loadLevel(level) {
     let newLevel;
 
@@ -12,6 +13,7 @@ function loadLevel(level) {
     }
 }
 
+// Actual JS
 function levelSequencer() {
     for (let i = 0; i < currentLevel.length; i++) {
         // Delay Wave
