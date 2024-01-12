@@ -1,12 +1,50 @@
+function drawStart() {
+    // Background
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, cnv.width, cnv.height);
+
+    // Start Text
+    ctx.font = "50px chunkyCPC";
+    ctx.fillStyle = "rgb(25, 190, 40)";
+    ctx.fillText("CLICK TO START", 50, cnv.height / 2, cnv.width - 80);
+}
+
 function drawMainComponents() {
     // Background
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, cnv.width, cnv.height);
 
-    ctx.fillStyle = "white";
-    ctx.fillRect(player[0].x - 5, player[0].y, 10, 10);
-    
-    drawPlayer();
+    if (state === "gameon") {
+        drawHeadUpsDisplay();
+    } else if (state === "pause") {
+        drawPause();
+    }
+}
+
+function drawHeadUpsDisplay() {
+    // Score
+    ctx.font = "15px chunkyCPC";
+    ctx.fillStyle = color.white;
+    ctx.fillText(`SCORE > ${player[0].score}`, 10, 25);
+
+    // Multiplier
+    ctx.font = "15px chunkyCPC";
+    ctx.fillStyle = color.white;
+    ctx.fillText(`MULT.`, cnv.width - 100, 25);
+
+    // Multiplier Number
+    ctx.font = "15px chunkyCPC";
+    ctx.fillStyle = color.white;
+    ctx.fillText(`${player[0].multiplier.toFixed(1)}`, cnv.width - 60, 50);
+
+    // Lives
+    ctx.font = "15px chunkyCPC";
+    ctx.fillStyle = color.white;
+    ctx.fillText(`${player[0].lives}`, 10, cnv.height - 10);
+}
+
+function drawPause() {
+
 }
 
 function drawPlayer() {

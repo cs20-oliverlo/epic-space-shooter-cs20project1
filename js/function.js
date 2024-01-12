@@ -1,12 +1,3 @@
-function drawStart() {
-    drawMainComponents();
-
-    // Start Text
-    ctx.font = "40px Consolas";
-    ctx.fillStyle = "rgb(25, 190, 40)";
-    ctx.fillText("CLICK TO START", 100, cnv.height / 2);
-}
-
 function runGame() {
     if (currentLevel !== undefined) {
         levelSequencer();
@@ -19,9 +10,13 @@ function runGame() {
     drawMainComponents();
 
     for (let i = 0; i < player.length; i++) {
+        ctx.fillStyle = "white";
+        ctx.fillRect(player[0].x - 5, player[0].y, 10, 10);
+        
+        drawPlayer(i);
         playerShoot(i);
         playerMovement(i);
-        playerIFrames(i)
+        playerIFrames(i);
     }
 
     for (let i = 0; i < enemies.length; i++) {
@@ -41,7 +36,7 @@ function runGame() {
 }
 
 function pauseGame() {
-    drawPause();
+    drawMainComponents();
 }
 
 function drawGameOver() {

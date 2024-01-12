@@ -1,7 +1,21 @@
+@font-face {
+    font-family: "senor-saturno";
+    src: url("fonts/senor-saturno.regular.ttf");
+}
+
+@font-face {
+    font-family: "chunkyCPC";
+    src: url("fonts/WavesChunkyCPC-Regular.otf");
+}
+
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: chunkycpc;
     margin: auto;
     background-color: grey;
+}
+
+h1 {
+    font-size: 35px;
 }
 
 .center {

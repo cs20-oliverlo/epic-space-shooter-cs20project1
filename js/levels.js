@@ -1,16 +1,20 @@
 // Loading JSONs
 function loadLevel(level) {
-    let newLevel;
+    // let newLevel;
+
+    // fetch(`json/levels/${level}.json`)
+    //     .then((res) => res.json())
+    //     .then((data) => newLevel = data)
+
+    // if (newLevel !== undefined) {
+    //     fetch(`json/levels/${level}.json`)
+    //         .then((res) => res.json())
+    //         .then((data) => currentLevel = data)
+    // }
 
     fetch(`json/levels/${level}.json`)
         .then((res) => res.json())
-        .then((data) => newLevel = data)
-
-    if (newLevel !== undefined) {
-        fetch(`json/levels/${level}.json`)
-            .then((res) => res.json())
-            .then((data) => currentLevel = data)
-    }
+        .then((data) => currentLevel = data)
 }
 
 // Actual JS
