@@ -31,6 +31,13 @@ function runGame() {
         bulletMovement(i);
     }
 
+    // HUD, Pause Screen
+    if (state === "gameon") {
+        drawHeadUpsDisplay();
+    } else if (state === "pause") {
+        drawPause();
+    }
+
     // console.log(player[0].lives);
     console.log(keys.j, mouseIsPressed);
 }
@@ -64,6 +71,17 @@ function reset() {
     };
 
     levelTime = 0;
+
+    hud = {
+        life: {
+            x1: 10,
+            y1: cnv.height - 10,
+            x2: 25,
+            y2: cnv.height - 10 - (Math.sqrt(30 ** 2 - 15 ** 2)),
+            x3: 40,
+            y3: cnv.height - 10,
+        }
+    };
 
     player = [];
     // (x, y, width, height, xVelocity, yVelocity, reloadTime, reloadTarget, lives, score, multiplier, shoot, up, left, right, down, slow)

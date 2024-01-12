@@ -65,12 +65,19 @@ function playerDamaged(n) {
         player[n].lives--;
         player[n].lastHit = levelTime;
         player[n].invincible = true;
+        playerDeath(n);
     }
 }
 
 function playerIFrames(n) {
     if (levelTime - player[n].lastHit > 1.5) {
         player[n].invincible = false;
+    }
+}
+
+function playerDeath(n) {
+    if (player[n].lives < 1) {
+        reset();
     }
 }
 

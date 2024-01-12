@@ -13,34 +13,99 @@ function drawMainComponents() {
     // Background
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, cnv.width, cnv.height);
-
-    if (state === "gameon") {
-        drawHeadUpsDisplay();
-    } else if (state === "pause") {
-        drawPause();
-    }
 }
 
 function drawHeadUpsDisplay() {
+    // // Score
+    // ctx.font = "15px chunkyCPC";
+    // ctx.fillStyle = color.white;
+    // ctx.fillText(`SCORE ${player[0].score}`, 10, 25);
+
+    // // Multiplier
+    // ctx.font = "15px chunkyCPC";
+    // ctx.fillStyle = color.white;
+    // ctx.fillText(`MULT.`, cnv.width - 100, 25);
+
+    // // Multiplier Number
+    // ctx.font = "15px chunkyCPC";
+    // ctx.fillStyle = color.white;
+    // ctx.fillText(`${player[0].multiplier.toFixed(1)}x`, cnv.width - 70, 50);
+
     // Score
     ctx.font = "15px chunkyCPC";
     ctx.fillStyle = color.white;
-    ctx.fillText(`SCORE > ${player[0].score}`, 10, 25);
-
-    // Multiplier
-    ctx.font = "15px chunkyCPC";
-    ctx.fillStyle = color.white;
-    ctx.fillText(`MULT.`, cnv.width - 100, 25);
+    ctx.fillText(`${player[0].score}`, 10, 25);
 
     // Multiplier Number
     ctx.font = "15px chunkyCPC";
     ctx.fillStyle = color.white;
-    ctx.fillText(`${player[0].multiplier.toFixed(1)}`, cnv.width - 60, 50);
+    ctx.fillText(`${player[0].multiplier.toFixed(1)}x`, cnv.width - 70, 25);
 
-    // Lives
-    ctx.font = "15px chunkyCPC";
-    ctx.fillStyle = color.white;
-    ctx.fillText(`${player[0].lives}`, 10, cnv.height - 10);
+    if (player[0].invincible === false) {
+        ctx.fillStyle = color.white;
+    } else {
+        ctx.fillStyle = "red";
+    }
+    ctx.beginPath();
+    ctx.moveTo(hud.life.x1 + 1, hud.life.y1 - 1);
+    ctx.lineTo(hud.life.x2, hud.life.y2 + 1);
+    ctx.lineTo(hud.life.x3 - 1, hud.life.y3 - 1);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.lineWidth = 1;
+    if (player[0].lives < 1) {
+        ctx.fillStyle = "black";
+    } else {
+        ctx.strokeStyle = "black";
+    }
+    ctx.beginPath();
+    ctx.moveTo(hud.life.x1, hud.life.y1);
+    ctx.lineTo(hud.life.x3 - (hud.life.x3 - hud.life.x1) * 1/3, hud.life.y3);
+    ctx.lineTo(hud.life.x1 + (hud.life.x3 - hud.life.x1) / 2, hud.life.y1 - ((hud.life.x3 - hud.life.x1) / 2) ** 2 / (Math.sqrt((hud.life.x3 - hud.life.x1) ** 2 - ((hud.life.x3 - hud.life.x1) / 2) ** 2)));
+    ctx.lineTo(hud.life.x1 - (((hud.life.x3 - hud.life.x1) / 2) ** 2 / (Math.sqrt((hud.life.x3 - hud.life.x1) ** 2 - ((hud.life.x3 - hud.life.x1) / 2) ** 2)) * ((hud.life.x3 - hud.life.x1) / 2) / (hud.life.y2 - hud.life.y1)), hud.life.y1 - ((hud.life.x3 - hud.life.x1) / 2) ** 2 / (Math.sqrt((hud.life.x3 - hud.life.x1) ** 2 - ((hud.life.x3 - hud.life.x1) / 2) ** 2)));
+    ctx.closePath();
+    if (player[0].lives < 1) {
+        ctx.fill();
+    } else {
+        ctx.stroke();
+    }
+
+    ctx.lineWidth = 1;
+    if (player[0].lives < 2) {
+        ctx.fillStyle = "black";
+    } else {
+        ctx.strokeStyle = "black";
+    }
+    ctx.beginPath();
+    ctx.moveTo(hud.life.x2, hud.life.y2);
+    ctx.lineTo(hud.life.x3 - (hud.life.x3 - hud.life.x1) / 3, hud.life.y2 + ((hud.life.x3 - hud.life.x1) / 2) ** 2 / (Math.sqrt((hud.life.x3 - hud.life.x1) ** 2 - ((hud.life.x3 - hud.life.x1) / 2) ** 2)));
+    ctx.lineTo(hud.life.x1 + (hud.life.x3 - hud.life.x1) / 2, hud.life.y1 - ((hud.life.x3 - hud.life.x1) / 2) ** 2 / (Math.sqrt((hud.life.x3 - hud.life.x1) ** 2 - ((hud.life.x3 - hud.life.x1) / 2) ** 2)));
+    ctx.lineTo(hud.life.x1 - (((hud.life.x3 - hud.life.x1) / 2) ** 2 / (Math.sqrt((hud.life.x3 - hud.life.x1) ** 2 - ((hud.life.x3 - hud.life.x1) / 2) ** 2)) * ((hud.life.x3 - hud.life.x1) / 2) / (hud.life.y2 - hud.life.y1)), hud.life.y1 - ((hud.life.x3 - hud.life.x1) / 2) ** 2 / (Math.sqrt((hud.life.x3 - hud.life.x1) ** 2 - ((hud.life.x3 - hud.life.x1) / 2) ** 2)));
+    ctx.closePath();
+    if (player[0].lives < 2) {
+        ctx.fill();
+    } else {
+        ctx.stroke();
+    }
+
+    ctx.lineWidth = 1;
+    if (player[0].lives < 3) {
+        ctx.fillStyle = "black";
+    } else {
+        ctx.strokeStyle = "black";
+    }
+    ctx.beginPath();
+    ctx.moveTo(hud.life.x3 - (hud.life.x3 - hud.life.x1) * 1/3, hud.life.y3);
+    ctx.lineTo(hud.life.x1 + (hud.life.x3 - hud.life.x1) / 2, hud.life.y1 - ((hud.life.x3 - hud.life.x1) / 2) ** 2 / (Math.sqrt((hud.life.x3 - hud.life.x1) ** 2 - ((hud.life.x3 - hud.life.x1) / 2) ** 2)));
+    ctx.lineTo(hud.life.x3 - (hud.life.x3 - hud.life.x1) / 3, hud.life.y2 + ((hud.life.x3 - hud.life.x1) / 2) ** 2 / (Math.sqrt((hud.life.x3 - hud.life.x1) ** 2 - ((hud.life.x3 - hud.life.x1) / 2) ** 2)));
+    ctx.lineTo(hud.life.x3, hud.life.y3);
+    ctx.closePath();
+    if (player[0].lives < 3) {
+        ctx.fill();
+    } else {
+        ctx.stroke();
+    }
 }
 
 function drawPause() {

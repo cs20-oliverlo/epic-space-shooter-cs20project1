@@ -20,6 +20,8 @@ let keys;
 let camera;
 let levelTime = 0;
 let currentLevel;
+// HUD
+let hud;
 // Player
 let player;
 // Enemies
