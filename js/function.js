@@ -99,5 +99,7 @@ function reset() {
                 babyBlue: "rgb(123, 173, 224)",
                 indigo: "rgb(80, 100, 233)",
                 violet: "rgb(90, 66, 180)"
-            };
+    };
+
+    startLevel();
 }
