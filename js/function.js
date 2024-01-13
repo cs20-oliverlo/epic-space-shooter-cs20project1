@@ -43,7 +43,7 @@ function runGame() {
 }
 
 function pauseGame() {
-    drawMainComponents();
+    drawPause();
 }
 
 function drawGameOver() {
@@ -61,7 +61,6 @@ function reset() {
         j: false,
         p: false,
         space: false,
-        escape: false,
         shiftLeft: false
     };
 
@@ -80,6 +79,24 @@ function reset() {
             y2: cnv.height - 10 - (Math.sqrt(30 ** 2 - 15 ** 2)),
             x3: 40,
             y3: cnv.height - 10,
+        }
+    };
+
+    pauseScreen = {
+        selector: {
+            X: 0,
+            y: 0,
+            color: "white"
+        },
+        resumeBtn: {
+            x: cnv.width / 2 - 80,
+            y: cnv.height / 2 - 40,
+            color: "white"
+        },
+        restartBtn: {
+            x: cnv.width / 2 - 90,
+            y: cnv.height / 2 + 40,
+            color: "white"
         }
     };
 

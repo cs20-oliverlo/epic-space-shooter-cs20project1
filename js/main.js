@@ -1,3 +1,5 @@
+console.log("type 'player[0].lives = 1000' for easier difficulty");
+
 // Set up canvas and graphics context
 let cnv = document.getElementById("my-canvas");
 let ctx = cnv.getContext("2d");
@@ -20,6 +22,7 @@ let keys;
 let camera;
 let levelTime = 0;
 let currentLevel;
+let pauseScreen;
 // HUD
 let hud;
 // Player
@@ -41,7 +44,6 @@ function startLevel() {
     .then((res) => res.json())
     .then((data) => currentLevel = data)
 }
-startLevel();
 
 // Playable at any monitors refresh rate
 function start() {
@@ -110,9 +112,6 @@ function keydownHandler(event) {
     if (event.code === "Space") {
         keys.space = true;
     }
-    if (event.code === "Escape") {
-        keys.escape = false;
-    }
     if (event.code === "ShiftLeft") {
         keys.shiftLeft = true;
     }
@@ -140,9 +139,6 @@ function keyupHandler(event) {
     }
     if (event.code === "Space") {
         keys.space = false;
-    }
-    if (event.code === "Escape") {
-        keys.escape = false;
     }
     if (event.code === "ShiftLeft") {
         keys.shiftLeft = false;

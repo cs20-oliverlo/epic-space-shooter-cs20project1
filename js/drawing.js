@@ -109,7 +109,28 @@ function drawHeadUpsDisplay() {
 }
 
 function drawPause() {
+    // Background Box
+    ctx.fillStyle = "black";
+    ctx.fillRect(pauseScreen.resumeBtn.x - 100, pauseScreen.resumeBtn.y - 50, cnv.width - 2 * (pauseScreen.resumeBtn.x - 100), (pauseScreen.restartBtn.y - pauseScreen.resumeBtn.y) * 2);
 
+    // Resume Button
+    ctx.font = "20px chunkyCPC";
+    ctx.fillStyle = `${pauseScreen.resumeBtn.color}`;
+    ctx.fillText(`RESUME`, pauseScreen.resumeBtn.x, pauseScreen.resumeBtn.y);
+
+    // Restart Button
+    ctx.font = "20px chunkyCPC";
+    ctx.fillStyle = `${pauseScreen.restartBtn.color}`;
+    ctx.fillText(`RESTART`, pauseScreen.restartBtn.x, pauseScreen.restartBtn.y);
+
+    // Select Triangle
+    ctx.strokeStyle = color.darkerGreen;
+    ctx.beginPath();
+    ctx.moveTo(pauseScreen.selector.x - 10, pauseScreen.selector.y - 5);
+    ctx.lineTo(pauseScreen.selector.x - 20 - 10, pauseScreen.selector.y - 10 - 5);
+    ctx.lineTo(pauseScreen.selector.x - 20 - 10, pauseScreen.selector.y + 10 - 5);
+    ctx.closePath();
+    ctx.stroke();
 }
 
 function drawPlayer() {
