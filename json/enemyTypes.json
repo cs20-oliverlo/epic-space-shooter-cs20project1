@@ -1,12 +1,18 @@
 [{
-    "w": 0,
-    "h": 0,
     "r": 15,
     "health": 10,
     "points": 10,
     "id": "discus",
     "xVel": 0.20,
     "yVel": 0.20,
-    "canShoot": false,
-    "reloadTarget": 200
+    "canShoot": false
+}, {
+    "r": 15,
+    "health": 10,
+    "points": 10,
+    "id": "discus-oscillate-mV",
+    "xVel": 0.20,
+    "yVel": 0.20,
+    "xAccel": 0.5,
+    "canShoot": false
 }]

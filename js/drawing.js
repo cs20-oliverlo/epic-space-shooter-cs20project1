@@ -171,6 +171,12 @@ function drawEnemies(n) {
             ctx.beginPath();
             ctx.arc(enemies[n].x, enemies[n].y, enemies[n].r, 0, 2 * Math.PI);
             ctx.stroke();
+        } else if (enemies[n].id === "discus-oscillate-mV") {
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = enemies[n].color;
+            ctx.beginPath();
+            ctx.arc(enemies[n].x, enemies[n].y, enemies[n].r, 0, 2 * Math.PI);
+            ctx.stroke();
         }
     }
 }

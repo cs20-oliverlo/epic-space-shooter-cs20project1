@@ -6,7 +6,7 @@ fetch('json/enemyTypes.json')
     .then((data) => enemyType = data);
 
 // Actual JS
-function newEnemy(xP, yP, wP, hP, rP, colorP, healthP, pointsP, idP, xVelP, yVelP, xDirectionP, yDirectionP, canShootP, reloadTimerP, reloadTargetP) {
+function newEnemy(xP, yP, wP, hP, rP, colorP, healthP, pointsP, idP, xVelP, yVelP, xAccelP, yAccelP, xDirectionP, yDirectionP, canShootP, reloadTimerP, reloadTargetP) {
     return {
         x: xP,
         y: yP,
@@ -19,6 +19,8 @@ function newEnemy(xP, yP, wP, hP, rP, colorP, healthP, pointsP, idP, xVelP, yVel
         id: idP,
         xVel: xVelP,
         yVel: yVelP,
+        xAccel: xAccelP,
+        yAccel: yAccelP,
         xDirection: xDirectionP,
         yDirection: yDirectionP,
         canShoot: canShootP,
@@ -31,12 +33,24 @@ function enemyMovement(n) {
     if (enemies[n].id === "discus") {
         enemies[n].x += enemies[n].xVel * enemies[n].xDirection * deltaTime;
         enemies[n].y += enemies[n].yVel * enemies[n].yDirection * deltaTime;
+    } else if (enemies[n].id === "discus-oscillate-mV") {
+        enemies[n].x += enemies[n].xVel * deltaTime;
+        enemies[n].y += enemies[n].yVel * enemies[n].yDirection * deltaTime;
+        if (enemies[n].xVel < 1 && enemies[n].xVel > 0) {
+        enemies[n].xVel -= enemies[n].xAccel;
+        } else if (enemies[n].xVel > -1 && enemies[n].xVel < 0) {
+            enemies[n].xVel += enemies[n].xAccel;
+        }
     }
 }
 
 function killEnemy(n) {
     if (enemies[n].health <= 0) {
         if (enemies[n].id === "discus") {
+            player[0].score += enemies[n].points * player[0].multiplier;
+            player[0].multiplier += enemies[n].points * 0.01;
+            enemies.splice(n, 1);
+        } else if (enemies[n].id === "discus-oscillate-mV") {
             player[0].score += enemies[n].points * player[0].multiplier;
             player[0].multiplier += enemies[n].points * 0.01;
             enemies.splice(n, 1);
@@ -58,8 +72,10 @@ function customEnemies(n) {
             enemies[enemies.length - 1].points = enemyType[i].points;
             enemies[enemies.length - 1].xVel = enemyType[i].xVel;
             enemies[enemies.length - 1].yVel = enemyType[i].yVel;
+            enemies[enemies.length - 1].xAccel = enemyType[i].xAccel;
+            enemies[enemies.length - 1].yAccel = enemyType[i].yAccel;
             enemies[enemies.length - 1].canShoot = enemyType[i].canShoot;
-        } else {
+        } else if (enemies[enemies.length - 1].id === "none") {
             enemies.pop(enemies.length - 1);
         }
 
@@ -85,11 +101,11 @@ function enemyFormation(n1) {
         let n = (i + 1) * 50;
     
         for (let j = 0; j < enemyWaves[i].length; j++) {
-            // x, y, w, h, r, color, health, id, xVel, yVel, xDirection, yDirection, canShoot, reloadTimer, reloadTarget
+            // x, y, w, h, r, color, health, points, id, xVel, yVel, xAccel, yAccel, xDirection, yDirection, canShoot, reloadTimer, reloadTarget
             if (enemyWaves[i][j].xDirection === 0) {
-                enemies.push(newEnemy(cnv.width / (enemyWaves[i].length + 1) + (j * cnv.width / (enemyWaves[i].length + 1)), 0, 0, 0, 0, color.violet, 0, 0, enemyWaves[i][j].id, 0, 0, enemyWaves[i][j].xDirection, enemyWaves[i][j].yDirection, false, 0, 0));
+                enemies.push(newEnemy(cnv.width / (enemyWaves[i].length + 1) + (j * cnv.width / (enemyWaves[i].length + 1)), 0, 0, 0, 0, color.violet, 0, 0, enemyWaves[i][j].id, 0, 0, 0, 0, enemyWaves[i][j].xDirection, enemyWaves[i][j].yDirection, false, 0, 0));
             } else if (enemyWaves[i][j].yDirection === 0) {
-                enemies.push(newEnemy(0, cnv.width / (enemyWaves[i].length + 1) + (j * cnv.width / (enemyWaves[i].length + 1)), 0, 0, 0, color.violet, 0, 0, enemyWaves[i][j].id, 0, 0, enemyWaves[i][j].xDirection, enemyWaves[i][j].yDirection, false, 0, 0));
+                enemies.push(newEnemy(0, cnv.width / (enemyWaves[i].length + 1) + (j * cnv.width / (enemyWaves[i].length + 1)), 0, 0, 0, color.violet, 0, 0, enemyWaves[i][j].id, 0, 0, 0, 0, enemyWaves[i][j].xDirection, enemyWaves[i][j].yDirection, false, 0, 0));
             }
             customEnemies(n);
         }
