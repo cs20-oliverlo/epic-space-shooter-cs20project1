@@ -80,17 +80,18 @@ function customEnemies(n) {
             enemies[enemies.length - 1].yAccel = enemyType[i].yAccel;
         } else if (enemies[enemies.length - 1].id === "none") {
             enemies.pop(enemies.length - 1);
+            return;
         }
 
         if (enemies[enemies.length - 1].x === 0) {
             if (enemies[enemies.length - 1].xDirection === -1) {
-                enemies[enemies.length - 1].x += n + cnv.height;
+                enemies[enemies.length - 1].x += n + cnv.width;
             } else if (enemies[enemies.length - 1].xDirection === 1) {
                 enemies[enemies.length - 1].x += -n;
             }
         } else if (enemies[enemies.length - 1].y === 0) {
             if (enemies[enemies.length - 1].yDirection === -1) {
-                enemies[enemies.length - 1].y += n + cnv.width;
+                enemies[enemies.length - 1].y += n + cnv.height;
             } else if (enemies[enemies.length - 1].yDirection === 1) {
                 enemies[enemies.length - 1].y += -n;
             }
@@ -127,10 +128,8 @@ function enemyShoot(n) {
                 let run1 = player[0].x - enemies[n].x;
                 let rise1 = player[0].y - enemies[n].y;
                 let hyp1 = Math.sqrt(run1 ** 2 + rise1 ** 2);
-                let hyp2 = 1;
-                let scale = hyp1 / hyp2;
-                let run2 = run1 / scale / 10;
-                let rise2 = rise1 / scale / 10;
+                let run2 = run1 / hyp1 / 5;
+                let rise2 = rise1 / hyp1 / 5;
 
                 bullets[bullets.length - 1].xVel = run2;
                 bullets[bullets.length - 1].yVel = rise2;

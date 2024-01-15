@@ -26,13 +26,16 @@ function bulletDetection(n) {
                 }
             }
         }
-    } else if (bullets[n].id === "rockets") {
-        if (bullets[n].x + bullets[n].r < 0 || bullets[n].x + bullets[n].r > cnv.width || bullets[n].y + bullets[n].r < 0 || bullets[n].y + bullets[n].r > cnv.width) {
-            bullets.splice(n, 1);
-        } else if (player[i].y - 5 < bullets[n].y + bullets[n].r && player[i].y - 5 > bullets[n].y - bullets[n].r && player[i].x - 5 < bullets[n].x + bullets[n].r && player[i].x + 5 > bullets[n].x - bullets[n].r) {
-            playerDamaged(i);
-        } else if (player[i].y + 5 < bullets[n].y + bullets[n].r && player[i].y + 5 > bullets[n].y - bullets[n].r && player[i].x - 5 < bullets[n].x + bullets[n].r && player[i].x + 5 > bullets[n].x - bullets[n].r) {
-            playerDamaged(i);
+    } else if (bullets[n].id === "rocket") {
+        for (let i = 0; i < player.length; i++) {
+            if (bullets[n].x + bullets[n].r < 0 || bullets[n].x - bullets[n].r > cnv.width || bullets[n].y + bullets[n].r < 0 || bullets[n].y - bullets[n].r > cnv.height) {
+                console.log(bullets[n].x, bullets[n].y)
+                bullets.splice(n, 1);
+            } else if (player[i].y - 5 < bullets[n].y + bullets[n].r && player[i].y - 5 > bullets[n].y - bullets[n].r && player[i].x - 5 < bullets[n].x + bullets[n].r && player[i].x + 5 > bullets[n].x - bullets[n].r) {
+                playerDamaged(i);
+            } else if (player[i].y + 5 < bullets[n].y + bullets[n].r && player[i].y + 5 > bullets[n].y - bullets[n].r && player[i].x - 5 < bullets[n].x + bullets[n].r && player[i].x + 5 > bullets[n].x - bullets[n].r) {
+                playerDamaged(i);
+            }
         }
     }
 }

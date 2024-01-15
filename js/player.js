@@ -64,8 +64,8 @@ function playerScore(n) {
     player[0].score += enemies[n].points * player[0].multiplier;
     player[0].multiplier += enemies[n].points * 0.01;
 
-    if (player[0].score > 10) {
-        player[0].score = 10;
+    if (player[0].multiplier > 10) {
+        player[0].multiplier = 10;
     }
 }
 

@@ -16,30 +16,15 @@ function drawMainComponents() {
 }
 
 function drawHeadUpsDisplay() {
-    // // Score
-    // ctx.font = "15px chunkyCPC";
-    // ctx.fillStyle = color.white;
-    // ctx.fillText(`SCORE ${player[0].score}`, 10, 25);
-
-    // // Multiplier
-    // ctx.font = "15px chunkyCPC";
-    // ctx.fillStyle = color.white;
-    // ctx.fillText(`MULT.`, cnv.width - 100, 25);
-
-    // // Multiplier Number
-    // ctx.font = "15px chunkyCPC";
-    // ctx.fillStyle = color.white;
-    // ctx.fillText(`${player[0].multiplier.toFixed(1)}x`, cnv.width - 70, 50);
-
     // Score
     ctx.font = "15px chunkyCPC";
     ctx.fillStyle = color.white;
-    ctx.fillText(`${Math.round(player[0].score)}`, 10, 25);
+    ctx.fillText(`${Math.floor(player[0].score)}`, 10, 25);
 
     // Multiplier Number
     ctx.font = "15px chunkyCPC";
     ctx.fillStyle = color.white;
-    ctx.fillText(`${player[0].multiplier.toFixed(1)}x`, cnv.width - 70, 25);
+    ctx.fillText(`${player[0].multiplier.toFixed(1)}x`, cnv.width - 90, 25);
 
     if (player[0].invincible === false) {
         ctx.fillStyle = color.white;
@@ -133,6 +118,32 @@ function drawPause() {
     ctx.stroke();
 }
 
+function drawLevelWin() {
+    // Background
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, cnv.width, cnv.height);
+        
+    // Congratulations
+    ctx.font = "20px chunkyCPC";
+    ctx.fillStyle = color.white;
+    ctx.fillText(`CONGRATULATIONS!`, 10, 150);
+
+    // Final Score
+    ctx.font = "15px chunkyCPC";
+    ctx.fillStyle = color.white;
+    ctx.fillText(`FINAL SCORE: ${Math.floor(player[0].score)}`, 10, 200);
+
+    // Lives Left
+    ctx.font = "15px chunkyCPC";
+    ctx.fillStyle = color.white;
+    ctx.fillText(`REMAINING LIVES: ${player[0].lives}`, 10, 250);
+
+    // Time
+    ctx.font = "15px chunkyCPC";
+    ctx.fillStyle = color.white;
+    ctx.fillText(`TIME: ${levelTime.toFixed(3)}`, 10, 300);
+}
+
 function drawGameOver() {
     // Game Over
     ctx.font = "30px chunkyCPC";
@@ -171,7 +182,7 @@ function drawPlayer() {
 }
 
 function drawEnemies(n) {
-    if (enemies[n].x > camera.x && enemies[n].x < camera.x + cnv.width && enemies[n].y > camera.y && enemies[n].y < camera.y + cnv.height) {
+    if (enemies[n].x > camera.x - 50 && enemies[n].x < camera.x + cnv.width + 50 && enemies[n].y > camera.y - 50 && enemies[n].y < camera.y + cnv.height + 50) {
         if (enemies[n].id === "discus") {
             ctx.lineWidth = 3;
             ctx.strokeStyle = enemies[n].color;

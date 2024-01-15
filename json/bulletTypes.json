@@ -15,5 +15,5 @@
     "id": "rocket",
     "xVel": 0,
     "yVel": 0,
-    "reloadTarget": 2000
+    "reloadTarget": 500
 }]

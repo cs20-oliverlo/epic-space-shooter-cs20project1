@@ -35,6 +35,8 @@ function runGame() {
     } else if (state === "pause") {
         drawPause();
     }
+
+    console.log(bullets.length);
 }
 
 function pauseGame() {
@@ -42,7 +44,7 @@ function pauseGame() {
 }
 
 function levelWin() {
-    console.log("you beat the first and probably only level");
+    drawLevelWin();
 }
 
 function reset() {
