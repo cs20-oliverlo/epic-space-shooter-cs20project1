@@ -34,7 +34,7 @@ function drawHeadUpsDisplay() {
     // Score
     ctx.font = "15px chunkyCPC";
     ctx.fillStyle = color.white;
-    ctx.fillText(`${player[0].score}`, 10, 25);
+    ctx.fillText(`${Math.round(player[0].score)}`, 10, 25);
 
     // Multiplier Number
     ctx.font = "15px chunkyCPC";
@@ -133,6 +133,13 @@ function drawPause() {
     ctx.stroke();
 }
 
+function drawGameOver() {
+    // Game Over
+    ctx.font = "30px chunkyCPC";
+    ctx.fillStyle = `white`;
+    ctx.fillText(`TRY AGAIN`, 70, 100);
+}
+
 function drawPlayer() {
     // Thruster
     ctx.lineWidth = 2;
@@ -171,12 +178,23 @@ function drawEnemies(n) {
             ctx.beginPath();
             ctx.arc(enemies[n].x, enemies[n].y, enemies[n].r, 0, 2 * Math.PI);
             ctx.stroke();
-        } else if (enemies[n].id === "discus-oscillate-mV") {
+        } else if (enemies[n].id === "big-boss") {
             ctx.lineWidth = 3;
             ctx.strokeStyle = enemies[n].color;
             ctx.beginPath();
-            ctx.arc(enemies[n].x, enemies[n].y, enemies[n].r, 0, 2 * Math.PI);
+            ctx.arc(enemies[n].x - enemies[n].w / 2, enemies[n].y, enemies[n].r, 0, 2 * Math.PI);
+            ctx.closePath();
             ctx.stroke();
+
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = enemies[n].color;
+            ctx.beginPath();
+            ctx.arc(enemies[n].x + enemies[n].w / 2, enemies[n].y, enemies[n].r, 0, 2 * Math.PI);
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.fillStyle = enemies[n].color;
+            ctx.fillRect(enemies[n].x - enemies[n].w / 2, enemies[n].y - enemies[n].h / 2, enemies[n].w, enemies[n].h);
         }
     }
 }
@@ -188,6 +206,13 @@ function drawBullets(n) {
         ctx.beginPath();
         ctx.moveTo(bullets[n].x, bullets[n].y);
         ctx.lineTo(bullets[n].x, bullets[n].y + bullets[n].h);
+        ctx.stroke();
+    } else if (bullets[n].id === "rocket") {
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = bullets[n].color;
+        ctx.beginPath();
+        ctx.arc(bullets[n].x, bullets[n].y, bullets[n].r, 0, 2 * Math.PI);
+        ctx.closePath();
         ctx.stroke();
     }
 }

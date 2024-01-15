@@ -69,8 +69,14 @@ function gameStates() {
         runGame();
     } else if (state === "pause") {
         pauseGame();
+    } else if (state === "levelwin") {
+        levelWin();
     } else if (state === "gameover") {
+        levelTimer(true);
         drawGameOver();
+        if (levelTime > player[0].lastHit + 3) {
+            reset();
+        }
     }
 
     controls();

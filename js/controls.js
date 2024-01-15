@@ -41,11 +41,13 @@ function controls() {
         }
 
         // Resume Button
-        if (pauseScreen.selector.y === pauseScreen.resumeBtn.y && keys.space === true || mouseIsPressed === true || keys.j === true) {
-            state = "gameon";
+        if (pauseScreen.selector.y === pauseScreen.resumeBtn.y) {
+            if (keys.space === true) {
+                state = "gameon";
+            }
         }
         // Restart Button
-        if (pauseScreen.selector.y === pauseScreen.restartBtn.y && keys.space === true || mouseIsPressed === true || keys.j === true) {
+        if (pauseScreen.selector.y === pauseScreen.restartBtn.y && keys.space === true) {
             reset();
         }
     }

@@ -10,9 +10,6 @@ function runGame() {
     drawMainComponents();
 
     for (let i = 0; i < player.length; i++) {
-        ctx.fillStyle = "white";
-        ctx.fillRect(player[0].x - 5, player[0].y, 10, 10);
-        
         drawPlayer(i);
         playerShoot(i);
         playerMovement(i);
@@ -22,6 +19,7 @@ function runGame() {
     for (let i = 0; i < enemies.length; i++) {
         drawEnemies(i);
         enemyMovement(i);
+        enemyShoot(i);
         // killEnemy(i);
         removeEnemies(i);
     }
@@ -37,17 +35,14 @@ function runGame() {
     } else if (state === "pause") {
         drawPause();
     }
-
-    // console.log(player[0].lives);
-    console.log(keys.j, mouseIsPressed);
 }
 
 function pauseGame() {
     drawPause();
 }
 
-function drawGameOver() {
-
+function levelWin() {
+    console.log("you beat the first and probably only level");
 }
 
 function reset() {
@@ -101,8 +96,8 @@ function reset() {
     };
 
     player = [];
-    // (x, y, width, height, xVelocity, yVelocity, reloadTime, reloadTarget, lives, score, multiplier, shoot, up, left, right, down, slow)
-    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 0.25, 0.25, 0, 0, 3, 0, 1, false, false, false, false, false, false, 0, false));
+    // (x, y, width, height, xVelocity, yVelocity, reloadTimer, reloadTarget, lives, score, multiplier, shoot, up, left, right, down, slow, lastHit, invincible)
+    player.push(newPlayer(cnv.width / 2, 580, 20, 50, 0.25, 0.25, 0, 0.5, 3, 0, 1, false, false, false, false, false, false, 0, false));
 
     enemies = [];
 

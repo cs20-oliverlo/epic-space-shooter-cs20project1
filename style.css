@@ -18,6 +18,10 @@ h1 {
     font-size: 35px;
 }
 
+p {
+    font-size: 15px;
+}
+
 .center {
     text-align: center;
 }

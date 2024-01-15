@@ -4,15 +4,14 @@
     "points": 10,
     "id": "discus",
     "xVel": 0.20,
-    "yVel": 0.20,
-    "canShoot": false
+    "yVel": 0.20
 }, {
-    "r": 15,
-    "health": 10,
-    "points": 10,
-    "id": "discus-oscillate-mV",
-    "xVel": 0.20,
-    "yVel": 0.20,
-    "xAccel": 0.5,
-    "canShoot": false
+    "r": 40,
+    "w": 100,
+    "h": 85,
+    "health": 1800,
+    "points": 1000,
+    "id": "big-boss",
+    "xVel": 0.10,
+    "yVel": 0.10
 }]

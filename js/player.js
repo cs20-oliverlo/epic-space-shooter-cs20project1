@@ -60,6 +60,15 @@ function playerMovement(n) {
     }
 }
 
+function playerScore(n) {
+    player[0].score += enemies[n].points * player[0].multiplier;
+    player[0].multiplier += enemies[n].points * 0.01;
+
+    if (player[0].score > 10) {
+        player[0].score = 10;
+    }
+}
+
 function playerDamaged(n) {
     if (levelTime > player[n].lastHit + 1.5) {
         player[n].lives--;
@@ -77,7 +86,8 @@ function playerIFrames(n) {
 
 function playerDeath(n) {
     if (player[n].lives < 1) {
-        reset();
+        player[0].lastHit = levelTime;
+        state = "gameover";
     }
 }
 

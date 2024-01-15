@@ -1,15 +1,47 @@
 [[
     {"time": 0, "loaded": false},
-    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus-oscillate-mV", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
-    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
-    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}]
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}]
+], [
+    {"time": 2, "loaded": false},
+    [{"id": "none", "xDirection": -1, "yDirection": 0}, {"id": "discus", "xDirection": -1, "yDirection": 0}, {"id": "none", "xDirection": -1, "yDirection": 0}, {"id": "discus", "xDirection": -1, "yDirection": 0}, {"id": "none", "xDirection": -1, "yDirection": 0}, {"id": "discus", "xDirection": -1, "yDirection": 0}, {"id": "none", "xDirection": -1, "yDirection": 0}, {"id": "discus", "xDirection": -1, "yDirection": 0}, {"id": "none", "xDirection": -1, "yDirection": 0}]
+], [
+    {"time": 3, "loaded": false},
+    [{"id": "discus", "xDirection": 1, "yDirection": 0}, {"id": "none", "xDirection": 1, "yDirection": 0}, {"id": "discus", "xDirection": 1, "yDirection": 0}, {"id": "none", "xDirection": 1, "yDirection": 0}, {"id": "discus", "xDirection": 1, "yDirection": 0}, {"id": "none", "xDirection": 1, "yDirection": 0}, {"id": "discus", "xDirection": 1, "yDirection": 0}, {"id": "none", "xDirection": 1, "yDirection": 0}, {"id": "discus", "xDirection": 1, "yDirection": 0}]
 ], [
     {"time": 5, "loaded": false},
-    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
-    [{"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}],
-    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
-    [{"id": "none"}, {"id": "discus", "xDirection": 1, "yDirection": 0}, {"id": "none"}]
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}], 
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "discus", "xDirection": 0, "yDirection": 1}]
 ], [
     {"time": 10, "loaded": false},
-    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}], [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}]
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": 1}, {"id": "discus", "xDirection": 0, "yDirection": 1}]
+], [
+    {"time": 17, "loaded": false},
+    [{"id": "discus", "xDirection": 0, "yDirection": -1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}],
+    [{"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}, {"id": "discus", "xDirection": 0, "yDirection": -1}]
+], [
+    {"time": 30, "loaded": false},
+    [{"id": "big-boss", "xDirection": 0, "yDirection": 1}, {"id": "none"}, {"id": "big-boss", "xDirection": 0, "yDirection": 1}]
 ]]

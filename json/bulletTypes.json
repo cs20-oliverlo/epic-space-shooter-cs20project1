@@ -7,4 +7,13 @@
     "xVel": 0,
     "yVel": 1.25,
     "reloadTarget": 50
+}, {
+    "w": 0,
+    "h": 0,
+    "r": 20,
+    "damage": 5,
+    "id": "rocket",
+    "xVel": 0,
+    "yVel": 0,
+    "reloadTarget": 2000
 }]
